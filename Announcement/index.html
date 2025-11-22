@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements - Los Angeles Roleplay</title>
+    <link rel="icon" type="image/png" href="https://ik.imagekit.io/seqcqjmzq/LARP%20-%20made%20by%20star%202.png?updatedAt=1759093844096">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1a5fb4;
+            --secondary: #62a0ea;
+            --accent: #3584e4;
+            --light: #f6f5f4;
+            --dark: #241f31;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary), var(--white));
+            --urgent: #e74c3c;
+            --important: #f39c12;
+            --update: #2ecc71;
+            --event: #9b59b6;
+        }
+        
+        body {
+            background: var(--gradient);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            font-family: 'Open Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-logo img {
+            height: 50px;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-logo:hover img {
+            transform: scale(1.05);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin: 0 15px;
+        }
+        
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-btn {
+            background: var(--accent);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(53, 132, 228, 0.3);
+        }
+        
+        .nav-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(53, 132, 228, 0.4);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease;
+            background-color: var(--dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            padding-top: 70px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 14, 41, 0.7);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--white);
+        }
+        
+        /* Animated Background Elements */
+        .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 20s infinite linear;
+        }
+        
+        .shape-1 {
+            width: 100px;
+            height: 100px;
+            background: var(--accent);
+            border-radius: 50%;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            background: var(--secondary);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            top: 60%;
+            left: 80%;
+            animation-delay: -5s;
+        }
+        
+        .shape-3 {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            top: 80%;
+            left: 20%;
+            animation-delay: -10s;
+        }
+        
+        .shape-4 {
+            width: 120px;
+            height: 120px;
+            background: var(--accent);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            top: 20%;
+            left: 80%;
+            animation-delay: -15s;
+        }
+        
+        /* Sections */
+        .section {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.95);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-alt {
+            background: rgba(246, 245, 244, 0.95);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--dark);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Announcement Filters */
+        .announcement-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .filter-btn {
+            background: var(--light);
+            color: var(--dark);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .filter-btn.active {
+            background: var(--accent);
+            color: var(--white);
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(53, 132, 228, 0.3);
+        }
+        
+        .filter-btn:hover:not(.active) {
+            background: var(--secondary);
+            color: var(--white);
+        }
+        
+        .filter-btn.urgent {
+            border-left: 4px solid var(--urgent);
+        }
+        
+        .filter-btn.important {
+            border-left: 4px solid var(--important);
+        }
+        
+        .filter-btn.update {
+            border-left: 4px solid var(--update);
+        }
+        
+        .filter-btn.event {
+            border-left: 4px solid var(--event);
+        }
+        
+        /* Announcements Grid */
+        .announcements-grid {
+            display: grid;
+            gap: 30px;
+        }
+        
+        .announcement-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s ease;
+            position: relative;
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        
+        .announcement-card.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .announcement-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .announcement-header {
+            padding: 25px 30px 20px;
+            border-bottom: 1px solid var(--light);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .announcement-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-urgent {
+            background: var(--urgent);
+            color: var(--white);
+        }
+        
+        .badge-important {
+            background: var(--important);
+            color: var(--white);
+        }
+        
+        .badge-update {
+            background: var(--update);
+            color: var(--white);
+        }
+        
+        .badge-event {
+            background: var(--event);
+            color: var(--white);
+        }
+        
+        .announcement-title {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.3;
+        }
+        
+        .announcement-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .announcement-meta i {
+            color: var(--accent);
+        }
+        
+        .announcement-content {
+            padding: 25px 30px;
+        }
+        
+        .announcement-content p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .announcement-content ul, .announcement-content ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .announcement-content li {
+            margin-bottom: 8px;
+        }
+        
+        .announcement-footer {
+            padding: 20px 30px;
+            background: var(--light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .announcement-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+        }
+        
+        .author-info h4 {
+            font-size: 1rem;
+            color: var(--dark);
+        }
+        
+        .author-info p {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .announcement-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .action-btn {
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--dark);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .action-btn:hover {
+            background: var(--accent);
+            color: var(--white);
+        }
+        
+        /* No Announcements State */
+        .no-announcements {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .no-announcements i {
+            font-size: 4rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .no-announcements h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--white);
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        
+        .cta h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .btn-light {
+            background: var(--white);
+            color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(10, 14, 41, 0.95);
+            color: var(--white);
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-section h3 {
+            color: var(--accent);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-section ul li a {
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+        
+        .footer-logo {
+            max-width: 180px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            margin: 25px 0;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 12px;
+            font-size: 1.8rem;
+            color: var(--accent);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px) scale(1.2);
+            color: var(--secondary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-btn {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            padding: 10px 18px;
+            margin: 5px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(200%) rotate(45deg); }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.1;
+            }
+            90% {
+                opacity: 0.1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Particle Background */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+            
+            .announcement-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+            
+            .announcement-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .announcement-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .announcement-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .cta h2 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .announcement-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="http://los-angeles-roleplay.online">
+                    <img src="https://ik.imagekit.io/seqcqjmzq/LARP%20-%20made%20by%20star%202.png?updatedAt=1759093844096" alt="Los Angeles Roleplay Logo">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="http://los-angeles-roleplay.online" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://los-angeles-roleplay.online/About" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://los-angeles-roleplay.online/Departments" class="nav-link">Departments</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://los-angeles-roleplay.online/Community" class="nav-link">Community</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://los-angeles-roleplay.online/Staff" class="nav-link">Staff</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://los-angeles-roleplay.online/Rules" class="nav-link">Rules</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://los-angeles-roleplay.online/Announcement" class="nav-link active">Announcements</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://los-angeles-roleplay.online/We-Need-You" class="nav-link nav-btn">We Need You</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+        <div class="particles" id="particles"></div>
+        <div class="hero-content">
+            <h1>Announcements</h1>
+            <p>Stay updated with the latest news and updates from Los Angeles Roleplay</p>
+            <div class="hero-btns">
+                <a href="#announcements" class="btn">View Announcements</a>
+                <a href="https://discord.gg/SAhNSas7yn" target="_blank" class="btn btn-secondary">Join Discord</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Announcements Section -->
+    <section id="announcements" class="section">
+        <div class="particles" id="particles2"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Latest Updates</h2>
+                <p>Stay informed about server updates, events, rule changes, and important community news</p>
+            </div>
+            
+            <div class="announcement-filters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-layer-group"></i> All Announcements
+                </button>
+                <button class="filter-btn urgent" data-filter="urgent">
+                    <i class="fas fa-exclamation-circle"></i> Urgent
+                </button>
+                <button class="filter-btn important" data-filter="important">
+                    <i class="fas fa-flag"></i> Important
+                </button>
+                <button class="filter-btn update" data-filter="update">
+                    <i class="fas fa-sync-alt"></i> Updates
+                </button>
+                <button class="filter-btn event" data-filter="event">
+                    <i class="fas fa-calendar-alt"></i> Events
+                </button>
+            </div>
+            
+            <div class="announcements-grid">
+                <!-- Announcement 1 -->
+                <div class="announcement-card" data-category="urgent">
+                    <div class="announcement-header">
+                        <div>
+                            <h3 class="announcement-title">Zero Tolerance Policy Enforcement Update</h3>
+                            <div class="announcement-meta">
+                                <span><i class="far fa-calendar"></i> October 15, 2025</span>
+                                <span><i class="far fa-clock"></i> 2:30 PM PST</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="announcement-badge badge-urgent">Urgent</div>
+                    <div class="announcement-content">
+                        <p>Effective immediately, we are strengthening our Zero Tolerance Policy enforcement. All staff members have been instructed to take immediate action against any form of trolling, harassment, or rule violations without exceptions.</p>
+                        <p><strong>Key changes:</strong></p>
+                        <ul>
+                            <li>Automatic 24-hour ban for first-time RDM/VDM offenses</li>
+                            <li>Permanent ban for any form of hate speech or discrimination</li>
+                            <li>Increased monitoring of roleplay quality and realism</li>
+                            <li>Stricter evidence requirements for appeals</li>
+                        </ul>
+                        <p>These measures are necessary to maintain the high-quality roleplay environment our community expects. Thank you for your understanding and cooperation.</p>
+                    </div>
+                    <div class="announcement-footer">
+                        <div class="announcement-author">
+                            <div class="author-avatar">S</div>
+                            <div class="author-info">
+                                <h4>Sittin</h4>
+                                <p>Owner & Founder</p>
+                            </div>
+                        </div>
+                        <div class="announcement-actions">
+                            <button class="action-btn"><i class="far fa-bookmark"></i> Save</button>
+                            <button class="action-btn"><i class="fas fa-share-alt"></i> Share</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Announcement 2 -->
+                <div class="announcement-card" data-category="event">
+                    <div class="announcement-header">
+                        <div>
+                            <h3 class="announcement-title">Community Event: Multi-Agency Training Day</h3>
+                            <div class="announcement-meta">
+                                <span><i class="far fa-calendar"></i> October 20, 2025</span>
+                                <span><i class="far fa-clock"></i> 3:00 PM PST</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="announcement-badge badge-event">Event</div>
+                    <div class="announcement-content">
+                        <p>We're excited to announce our upcoming Multi-Agency Training Day! This event will bring together all departments for coordinated training exercises and scenario-based roleplay.</p>
+                        <p><strong>Event Details:</strong></p>
+                        <ul>
+                            <li><strong>Date:</strong> October 20, 2025</li>
+                            <li><strong>Time:</strong> 3:00 PM - 6:00 PM PST</li>
+                            <li><strong>Location:</strong> Los Angeles Roleplay Server</li>
+                            <li><strong>Participants:</strong> All department members</li>
+                        </ul>
+                        <p><strong>Training Exercises:</strong></p>
+                        <ol>
+                            <li>High-speed pursuit protocols</li>
+                            <li>Multi-agency response coordination</li>
+                            <li>Medical emergency procedures</li>
+                            <li>Hostage negotiation scenarios</li>
+                        </ol>
+                        <p>All participants will receive special recognition and potential rank advancements based on performance. Make sure to arrive on time and come prepared!</p>
+                    </div>
+                    <div class="announcement-footer">
+                        <div class="announcement-author">
+                            <div class="author-avatar">L</div>
+                            <div class="author-info">
+                                <h4>Loveshot</h4>
+                                <p>Retired Co-Owner</p>
+                            </div>
+                        </div>
+                        <div class="announcement-actions">
+                            <button class="action-btn"><i class="far fa-bookmark"></i> Save</button>
+                            <button class="action-btn"><i class="fas fa-share-alt"></i> Share</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Announcement 3 -->
+                <div class="announcement-card" data-category="update">
+                    <div class="announcement-header">
+                        <div>
+                            <h3 class="announcement-title">Server Update v2.1.5 Patch Notes</h3>
+                            <div class="announcement-meta">
+                                <span><i class="far fa-calendar"></i> October 12, 2025</span>
+                                <span><i class="far fa-clock"></i> 11:45 AM PST</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="announcement-badge badge-update">Update</div>
+                    <div class="announcement-content">
+                        <p>We've just deployed Server Update v2.1.5 with several important fixes and improvements. The server will be more stable and performant with these changes.</p>
+                        <p><strong>Bug Fixes:</strong></p>
+                        <ul>
+                            <li>Fixed vehicle spawning issues in certain districts</li>
+                            <li>Resolved texture loading problems for new players</li>
+                            <li>Fixed radar system occasionally showing incorrect data</li>
+                            <li>Patched exploit allowing unauthorized vehicle modifications</li>
+                        </ul>
+                        <p><strong>Improvements:</strong></p>
+                        <ul>
+                            <li>Improved server performance during peak hours</li>
+                            <li>Enhanced vehicle physics for more realistic driving</li>
+                            <li>Updated police database with new vehicle models</li>
+                            <li>Optimized emergency response system algorithms</li>
+                        </ul>
+                        <p><strong>Known Issues:</strong></p>
+                        <ul>
+                            <li>Minor audio sync issues in cutscenes (being investigated)</li>
+                            <li>Occasional delay in department radio communications</li>
+                        </ul>
+                        <p>Please report any new issues to our development team through the appropriate channels.</p>
+                    </div>
+                    <div class="announcement-footer">
+                        <div class="announcement-author">
+                            <div class="author-avatar">S</div>
+                            <div class="author-info">
+                                <h4>Sittin</h4>
+                                <p>Developer & Owner</p>
+                            </div>
+                        </div>
+                        <div class="announcement-actions">
+                            <button class="action-btn"><i class="far fa-bookmark"></i> Save</button>
+                            <button class="action-btn"><i class="fas fa-share-alt"></i> Share</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Announcement 4 -->
+                <div class="announcement-card" data-category="important">
+                    <div class="announcement-header">
+                        <div>
+                            <h3 class="announcement-title">New Staff Applications Now Open</h3>
+                            <div class="announcement-meta">
+                                <span><i class="far fa-calendar"></i> October 8, 2025</span>
+                                <span><i class="far fa-clock"></i> 9:15 AM PST</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="announcement-badge badge-important">Important</div>
+                    <div class="announcement-content">
+                        <p>We're expanding our staff team! Applications are now open for Moderator and Administrator positions. This is a great opportunity to contribute to our community's growth and development.</p>
+                        <p><strong>Available Positions:</strong></p>
+                        <ul>
+                            <li><strong>Moderator (3 positions):</strong> Enforce rules, handle reports, assist players</li>
+                            <li><strong>Administrator (1 position):</strong> Manage departments, oversee events, staff coordination</li>
+                        </ul>
+                        <p><strong>Requirements:</strong></p>
+                        <ul>
+                            <li>Minimum 3 months active membership in LARP</li>
+                            <li>Clean disciplinary record</li>
+                            <li>Strong understanding of all server rules</li>
+                            <li>Excellent communication skills</li>
+                            <li>Availability for at least 10 hours per week</li>
+                        </ul>
+                        <p><strong>Application Process:</strong></p>
+                        <ol>
+                            <li>Submit application form by October 22, 2025</li>
+                            <li>Initial screening and interview</li>
+                            <li>Practical assessment and trial period</li>
+                            <li>Final decision and onboarding</li>
+                        </ol>
+                        <p>Apply now through our website or Discord server. Good luck to all applicants!</p>
+                    </div>
+                    <div class="announcement-footer">
+                        <div class="announcement-author">
+                            <div class="author-avatar">H</div>
+                            <div class="author-info">
+                                <h4>Harley</h4>
+                                <p>Dedicated Member</p>
+                            </div>
+                        </div>
+                        <div class="announcement-actions">
+                            <button class="action-btn"><i class="far fa-bookmark"></i> Save</button>
+                            <button class="action-btn"><i class="fas fa-share-alt"></i> Share</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Never Miss an Update</h2>
+            <p>Join our Discord community to receive instant notifications about announcements, events, and important updates.</p>
+            <div class="cta-btns">
+                <a href="https://discord.gg/SAhNSas7yn" target="_blank" class="btn btn-light">Join Discord</a>
+                <a href="http://los-angeles-roleplay.online/Community" class="btn btn-secondary">Our Community</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="https://ik.imagekit.io/seqcqjmzq/LARP%20-%20made%20by%20star%202.png?updatedAt=1759093844096" alt="Los Angeles Roleplay Logo" class="footer-logo">
+                <h3>Los Angeles Roleplay</h3>
+                <p>Building the most immersive Los Angeles-based roleplay experience on Roblox since 2025.</p>
+                <div class="social-links">
+                    <a href="https://discord.gg/SAhNSas7yn" target="_blank">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="http://los-angeles-roleplay.online" class="footer-btn">Home</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/About" class="footer-btn">About Us</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Community" class="footer-btn">Community</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Staff" class="footer-btn">Staff</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Announcement" class="footer-btn">Announcements</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="http://los-angeles-roleplay.online/Rules" class="footer-btn">Rules & Guidelines</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/FAQ" class="footer-btn">FAQ</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Support" class="footer-btn">Support</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Docs" class="footer-btn">Developer Docs</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Departments" class="footer-btn">Departments</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Programs</h3>
+                <ul>
+                    <li><a href="http://los-angeles-roleplay.online/We-Need-You" class="footer-btn">We Need You Program</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Applications" class="footer-btn">Applications</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Testing" class="footer-btn">Beta Testing</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Partners" class="footer-btn">Partners</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Events" class="footer-btn">Community Events</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="http://los-angeles-roleplay.online/Privacy-Policy" class="footer-btn">Privacy Policy</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Terms" class="footer-btn">Terms of Service</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Contact" class="footer-btn">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Los Angeles Roleplay Community. All rights reserved.</p>
+            <p>This site is not affiliated with Roblox Corporation.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            // Close menu when clicking on a link
+            document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }));
+            
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                    navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                } else {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                    navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+                }
+            });
+            
+            // Create particles
+            function createParticles(containerId, count) {
+                const container = document.getElementById(containerId);
+                for (let i = 0; i < count; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    const size = Math.random() * 5 + 2;
+                    const left = Math.random() * 100;
+                    const animationDuration = Math.random() * 20 + 10;
+                    const animationDelay = Math.random() * 5;
+                    
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.left = `${left}%`;
+                    particle.style.animationDuration = `${animationDuration}s`;
+                    particle.style.animationDelay = `${animationDelay}s`;
+                    
+                    container.appendChild(particle);
+                }
+            }
+            
+            createParticles('particles', 30);
+            createParticles('particles2', 20);
+            
+            // Filter functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const announcementCards = document.querySelectorAll('.announcement-card');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    // Filter announcements
+                    const filter = btn.getAttribute('data-filter');
+                    
+                    announcementCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.classList.contains('announcement-card')) {
+                            entry.target.classList.add('visible');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all animated elements
+            document.querySelectorAll('.announcement-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
