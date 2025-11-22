@@ -424,14 +424,23 @@
         
         .department-img {
             height: 200px;
-            background: var(--accent);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            font-size: 4rem;
             position: relative;
             overflow: hidden;
+            background-color: #f6f5f4;
+        }
+        
+        .department-img img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            transition: all 0.5s ease;
+        }
+        
+        .department-card:hover .department-img img {
+            transform: scale(1.1);
         }
         
         .department-img::before {
@@ -890,8 +899,8 @@
             </div>
             <div class="departments">
                 <div class="department-card">
-                    <div class="department-img" style="background: #1a5fb4;">
-                        <i class="fas fa-police-car"></i>
+                    <div class="department-img">
+                        <img src="https://ik.imagekit.io/seqcqjmzq/1759444602631.jpg?updatedAt=1762491919584" alt="LAPD Logo">
                     </div>
                     <div class="department-content">
                         <h3>Police Department</h3>
@@ -899,8 +908,8 @@
                     </div>
                 </div>
                 <div class="department-card">
-                    <div class="department-img" style="background: #b21f1f;">
-                        <i class="fas fa-fire"></i>
+                    <div class="department-img">
+                        <img src="https://ik.imagekit.io/seqcqjmzq/Los%20Angeles%20Fire%20Dept.jpg" alt="LAFD Logo">
                     </div>
                     <div class="department-content">
                         <h3>Fire & Rescue</h3>
@@ -908,8 +917,8 @@
                     </div>
                 </div>
                 <div class="department-card">
-                    <div class="department-img" style="background: #2ecc71;">
-                        <i class="fas fa-ambulance"></i>
+                    <div class="department-img">
+                        <img src="https://ik.imagekit.io/seqcqjmzq/Los%20Angeles%20EMS.jpg" alt="EMS and Medical Logo">
                     </div>
                     <div class="department-content">
                         <h3>Medical Services</h3>
@@ -917,8 +926,8 @@
                     </div>
                 </div>
                 <div class="department-card">
-                    <div class="department-img" style="background: #9b59b6;">
-                        <i class="fas fa-gavel"></i>
+                    <div class="department-img">
+                        <img src="https://ik.imagekit.io/seqcqjmzq/Los%20Angeles%20Federal%20Department.jpg" alt="LAFED Logo">
                     </div>
                     <div class="department-content">
                         <h3>Federal Agencies</h3>
