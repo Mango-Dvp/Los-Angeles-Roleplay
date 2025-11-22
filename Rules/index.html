@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rules & Guidelines - Los Angeles Roleplay</title>
+    <link rel="icon" type="image/png" href="https://ik.imagekit.io/seqcqjmzq/LARP%20-%20made%20by%20star%202.png?updatedAt=1759093844096">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1a5fb4;
+            --secondary: #62a0ea;
+            --accent: #3584e4;
+            --light: #f6f5f4;
+            --dark: #241f31;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary), var(--white));
+            --warning: #e74c3c;
+            --caution: #f39c12;
+        }
+        
+        body {
+            background: var(--gradient);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            font-family: 'Open Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-logo img {
+            height: 50px;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-logo:hover img {
+            transform: scale(1.05);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin: 0 15px;
+        }
+        
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-btn {
+            background: var(--accent);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(53, 132, 228, 0.3);
+        }
+        
+        .nav-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(53, 132, 228, 0.4);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease;
+            background-color: var(--dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            padding-top: 70px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 14, 41, 0.7);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--white);
+        }
+        
+        /* Animated Background Elements */
+        .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 20s infinite linear;
+        }
+        
+        .shape-1 {
+            width: 100px;
+            height: 100px;
+            background: var(--accent);
+            border-radius: 50%;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            background: var(--secondary);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            top: 60%;
+            left: 80%;
+            animation-delay: -5s;
+        }
+        
+        .shape-3 {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            top: 80%;
+            left: 20%;
+            animation-delay: -10s;
+        }
+        
+        .shape-4 {
+            width: 120px;
+            height: 120px;
+            background: var(--accent);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            top: 20%;
+            left: 80%;
+            animation-delay: -15s;
+        }
+        
+        /* Sections */
+        .section {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.95);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-alt {
+            background: rgba(246, 245, 244, 0.95);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--dark);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Warning Banner */
+        .warning-banner {
+            background: linear-gradient(135deg, var(--warning), #c0392b);
+            color: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.3);
+            text-align: center;
+            border-left: 8px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .warning-banner h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .warning-banner p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Rules Tabs */
+        .rules-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .tab-btn {
+            background: var(--light);
+            color: var(--dark);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tab-btn.active {
+            background: var(--accent);
+            color: var(--white);
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(53, 132, 228, 0.3);
+        }
+        
+        .tab-btn:hover:not(.active) {
+            background: var(--secondary);
+            color: var(--white);
+        }
+        
+        /* Rules Content */
+        .rules-content {
+            display: none;
+        }
+        
+        .rules-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .rules-category {
+            margin-bottom: 50px;
+        }
+        
+        .rules-category h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        .rules-list {
+            display: grid;
+            gap: 25px;
+        }
+        
+        .rule-item {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .rule-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .rule-item.severe {
+            border-left-color: var(--warning);
+            background: linear-gradient(to right, rgba(231, 76, 60, 0.05), var(--white));
+        }
+        
+        .rule-item.moderate {
+            border-left-color: var(--caution);
+            background: linear-gradient(to right, rgba(243, 156, 18, 0.05), var(--white));
+        }
+        
+        .rule-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .rule-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .rule-penalty {
+            background: var(--light);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--dark);
+            white-space: nowrap;
+        }
+        
+        .rule-item.severe .rule-penalty {
+            background: var(--warning);
+            color: var(--white);
+        }
+        
+        .rule-item.moderate .rule-penalty {
+            background: var(--caution);
+            color: var(--white);
+        }
+        
+        .rule-description {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .rule-proof {
+            background: var(--light);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .rule-proof strong {
+            color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(10, 14, 41, 0.95);
+            color: var(--white);
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-section h3 {
+            color: var(--accent);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-section ul li a {
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+        
+        .footer-logo {
+            max-width: 180px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            margin: 25px 0;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 12px;
+            font-size: 1.8rem;
+            color: var(--accent);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px) scale(1.2);
+            color: var(--secondary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-btn {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            padding: 10px 18px;
+            margin: 5px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(200%) rotate(45deg); }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.1;
+            }
+            90% {
+                opacity: 0.1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Particle Background */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+            
+            .rules-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .rule-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .rule-penalty {
+                align-self: flex-start;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .warning-banner h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="http://los-angeles-roleplay.online">
+                    <img src="https://ik.imagekit.io/seqcqjmzq/LARP%20-%20made%20by%20star%202.png?updatedAt=1759093844096" alt="Los Angeles Roleplay Logo">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="http://los-angeles-roleplay.online" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://los-angeles-roleplay.online/About" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://los-angeles-roleplay.online/Departments" class="nav-link">Departments</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://los-angeles-roleplay.online/Community" class="nav-link">Community</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://los-angeles-roleplay.online/Staff" class="nav-link">Staff</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://los-angeles-roleplay.online/Rules" class="nav-link active">Rules</a>
+                </li>
+                <li class="nav-item">
+                    <a href="http://los-angeles-roleplay.online/We-Need-You" class="nav-link nav-btn">We Need You</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+        <div class="particles" id="particles"></div>
+        <div class="hero-content">
+            <h1>Rules & Guidelines</h1>
+            <p>Strict enforcement for the most immersive roleplay experience</p>
+            <div class="hero-btns">
+                <a href="#rules" class="btn">View Rules</a>
+                <a href="https://discord.gg/SAhNSas7yn" target="_blank" class="btn btn-secondary">Join Discord</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="section">
+        <div class="particles" id="particles2"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Strict Enforcement Policy</h2>
+                <p>We maintain a zero-tolerance policy to ensure immersive, fair, and professional roleplay. All violations are taken seriously with appropriate penalties.</p>
+            </div>
+            
+            <div class="warning-banner">
+                <h3><i class="fas fa-exclamation-triangle"></i> Important Notice</h3>
+                <p>Proper proof is required for all rule violations. Video clips are strongly preferred and provide the most reliable evidence. Witness statements and screenshots may be accepted at staff discretion but are less reliable. False reports will result in penalties.</p>
+            </div>
+            
+            <div class="rules-tabs">
+                <button class="tab-btn active" data-tab="in-game">
+                    <i class="fas fa-gamepad"></i> In-Game Rules
+                </button>
+                <button class="tab-btn" data-tab="discord">
+                    <i class="fab fa-discord"></i> Discord Rules
+                </button>
+            </div>
+            
+            <!-- In-Game Rules -->
+            <div class="rules-content active" id="in-game">
+                <div class="rules-category">
+                    <h3><i class="fas fa-gamepad"></i> In-Game Rules</h3>
+                    <div class="rules-list">
+                        <div class="rule-item severe">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 1 – No Trolling</h4>
+                                <span class="rule-penalty">Permanent Ban</span>
+                            </div>
+                            <div class="rule-description">
+                                Trolling is intentionally disrupting or ruining roleplay for others. This results in an instant permanent ban. Even minor trolling can ruin immersion, so strict adherence is required.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Clips showing the trolling are preferred. Valid witnesses or photos may be accepted if staff allow.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item moderate">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 2 – No Random Killing (RDM)</h4>
+                                <span class="rule-penalty">1-Hour Kick</span>
+                            </div>
+                            <div class="rule-description">
+                                Killing other players without roleplay reason is forbidden. This ensures fair gameplay and immersion for everyone.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Clips are preferred. Witnesses or photos are allowed but highly discouraged.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item moderate">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 3 – No Vehicle Deathmatch (VDM)</h4>
+                                <span class="rule-penalty">1-Hour Kick</span>
+                            </div>
+                            <div class="rule-description">
+                                Intentionally hitting or running over players with vehicles is not allowed. Vehicles exist for realistic transportation, not harming players.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Clips are preferred. Witnesses or photos are secondary.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item moderate">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 4 – No Metagaming</h4>
+                                <span class="rule-penalty">Warning/Kick</span>
+                            </div>
+                            <div class="rule-description">
+                                Using out-of-character information for in-character actions is prohibited. Metagaming gives unfair advantage and breaks roleplay.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Clips if available. Witnesses or photos are rarely accepted.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item moderate">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 5 – No Powergaming</h4>
+                                <span class="rule-penalty">Warning/Kick</span>
+                            </div>
+                            <div class="rule-description">
+                                Forcing actions on other players without consent is forbidden. This rule protects fair and realistic roleplay.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Clips are preferred. Witnesses or photos may be accepted at staff discretion.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 6 – Keep Roleplay Realistic</h4>
+                                <span class="rule-penalty">Warning/Kick</span>
+                            </div>
+                            <div class="rule-description">
+                                All actions must make sense and feel realistic. Silly or impossible actions are punished. Realistic roleplay ensures enjoyment for all players.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Clips are the best proof. Witnesses and photos are secondary.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item moderate">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 7 – Protect Civilians</h4>
+                                <span class="rule-penalty">Warning/Kick</span>
+                            </div>
+                            <div class="rule-description">
+                                Do not endanger innocent players unnecessarily. Accidents caused by negligence may also be punished. Safety is a priority to maintain immersion.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Clips are preferred. Witnesses or photos are secondary.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item severe">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 8 – No Exploits or Bugs</h4>
+                                <span class="rule-penalty">Permanent Ban</span>
+                            </div>
+                            <div class="rule-description">
+                                Using glitches, scripts, or exploits is strictly forbidden. Immediate permanent bans may occur. Fair gameplay must be maintained.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Clips are strongly preferred. Witnesses or photos are only accepted if staff allow.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 9 – Follow Commands</h4>
+                                <span class="rule-penalty">Warning/Kick</span>
+                            </div>
+                            <div class="rule-description">
+                                Players must follow reasonable in-game commands. Ignoring commands disrupts roleplay. Following commands ensures immersive gameplay for all.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Clips are the most reliable proof, but witnesses or photos may be used if staff approve.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 10 – Respect Property</h4>
+                                <span class="rule-penalty">Warning/Kick</span>
+                            </div>
+                            <div class="rule-description">
+                                Do not destroy or misuse other players' property without roleplay reason. Violations break immersion and fairness.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Clips are preferred. Witnesses and photos are secondary.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 11 – Consent in Actions</h4>
+                                <span class="rule-penalty">Warning/Kick</span>
+                            </div>
+                            <div class="rule-description">
+                                Do not force actions on players without consent. Violating this rule disrupts fair roleplay. Respecting other players is essential.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Clips are required if possible. Witnesses and photos may be allowed at staff discretion.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 12 – Drive Responsibly</h4>
+                                <span class="rule-penalty">Warning/Kick</span>
+                            </div>
+                            <div class="rule-description">
+                                Vehicles must be used safely and realistically. Reckless or unrealistic driving is punishable. Safe driving keeps gameplay immersive.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Clips are preferred. Witnesses or photos may be accepted if staff permit.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item moderate">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 13 – No Abusive Language</h4>
+                                <span class="rule-penalty">Mute/Kick</span>
+                            </div>
+                            <div class="rule-description">
+                                Harassment or offensive language is forbidden. Respectful communication ensures a positive environment.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Proof is required, ideally clips. Witnesses and photos are secondary.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item moderate">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 14 – No False Reporting</h4>
+                                <span class="rule-penalty">Temporary Kick</span>
+                            </div>
+                            <div class="rule-description">
+                                Do not submit false reports against players. False witnesses will face temporary kicks to protect fairness.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Proof, preferably clips, is required to validate reports. Witnesses and photos are rarely accepted unless staff approve.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item moderate">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 15 – Repeat Offenses</h4>
+                                <span class="rule-penalty">Escalated Punishments</span>
+                            </div>
+                            <div class="rule-description">
+                                Breaking rules repeatedly leads to escalated punishments, including kicks or permanent bans. False witnesses will also be penalized.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Clips are preferred for proof. Witnesses and photos are secondary.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item severe">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 16 – Banned Roleplays</h4>
+                                <span class="rule-penalty">Permanent Ban</span>
+                            </div>
+                            <div class="rule-description">
+                                <ul>
+                                    <li><strong>Sexual / NSFW Roleplay:</strong> Any sexualized content, harassment, or sexualization of minors. Always age-appropriate; Roblox strictly forbids this.</li>
+                                    <li><strong>Real-Life Mass Violence / Terrorism:</strong> Extremely traumatic or real-world based violence (unless permitted by ownership).</li>
+                                    <li><strong>Targeting Real People / Harassment:</strong> Threats, bullying, doxxing, or using RP to harass someone outside of the story. Includes hate speech, discrimination, or trolling disguised as RP.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item severe">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 17 – Follow Roblox & ERLC TOS</h4>
+                                <span class="rule-penalty">Ban & Report</span>
+                            </div>
+                            <div class="rule-description">
+                                Follow Roblox TOS and ERLC TOS. Not doing so will result in a ban and report to the respective platforms.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Discord Rules -->
+            <div class="rules-content" id="discord">
+                <div class="rules-category">
+                    <h3><i class="fab fa-discord"></i> Discord Rules</h3>
+                    <div class="rules-list">
+                        <div class="rule-item severe">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 1 – Zero Tolerance Policy</h4>
+                                <span class="rule-penalty">10-min to Permanent Ban</span>
+                            </div>
+                            <div class="rule-description">
+                                Los Angeles RP enforces a strict Zero Tolerance Policy on offensive language, slurs, and any words that can be taken as insults, including terms like 'stupid' or 'idiot' and all curse words. Enforcement is automatic through bots and the WIC system. Punishments range from a 10-minute timeout to permanent bans, depending on the severity of the word. Severe cases may be reported to Discord and Emergency Response Liberty County (ERLC). No exceptions are allowed, and staff take this rule extremely seriously.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item moderate">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 2 – No Harassment</h4>
+                                <span class="rule-penalty">Mute/Kick/Ban</span>
+                            </div>
+                            <div class="rule-description">
+                                Harassment of any kind, including bullying, threats, or targeting members, is strictly prohibited. Violators may be muted, kicked, or banned depending on severity.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Enforcement requires proper proof, ideally clips. Witness statements or screenshots may be accepted if staff allow.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 3 – No Spamming</h4>
+                                <span class="rule-penalty">Mute/Kick</span>
+                            </div>
+                            <div class="rule-description">
+                                Excessive messages, emojis, or repeated text disrupt chat and are not allowed. Spamming can result in mutes or kicks.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Staff require clips to prove repeated spamming. Screenshots or witness statements may be considered but are less reliable.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item moderate">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 4 – No Advertising</h4>
+                                <span class="rule-penalty">Kick/Ban</span>
+                            </div>
+                            <div class="rule-description">
+                                Advertising other servers, products, or services is prohibited. Violators may be kicked or banned immediately.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Proper proof, preferably a clip or screenshot, is required. Staff have discretion on enforcement and severity.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 5 – Respect Staff</h4>
+                                <span class="rule-penalty">Warning/Ban</span>
+                            </div>
+                            <div class="rule-description">
+                                Members must respect all staff members and follow instructions. Disrespect or arguing with staff can result in warnings or bans.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Proof can include clips or screenshots of incidents. Staff may also take witness statements into account.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item severe">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 6 – No NSFW Content</h4>
+                                <span class="rule-penalty">Instant Ban</span>
+                            </div>
+                            <div class="rule-description">
+                                Sharing NSFW or inappropriate content is strictly forbidden. Violators may face instant bans.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Proper proof, preferably a clip or screenshot, is required. Staff may exercise discretion if necessary.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item severe">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 7 – No Racism or Hate Speech</h4>
+                                <span class="rule-penalty">Ban/Kick</span>
+                            </div>
+                            <div class="rule-description">
+                                Any racist, homophobic, or otherwise discriminatory language will not be tolerated. Violators will face bans or kicks. Maintaining a safe and inclusive environment is our top priority.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Clips are the preferred proof; screenshots or witness statements may be used if staff approve.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item severe">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 8 – No Threats of DoXXing or Hacking</h4>
+                                <span class="rule-penalty">Permanent Ban</span>
+                            </div>
+                            <div class="rule-description">
+                                Threats of hacking, doxxing, or revealing personal information are strictly forbidden. Violators may be permanently banned.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Clips showing these threats are preferred for proof. Staff discretion may allow screenshots or witness statements if needed.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 9 – No Excessive Ping Abuse</h4>
+                                <span class="rule-penalty">Mute/Kick</span>
+                            </div>
+                            <div class="rule-description">
+                                Mass pinging or pinging staff unnecessarily is not allowed. Violators may be muted or kicked.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Clips are preferred to verify the offense. Witnesses or screenshots may be accepted at staff discretion.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 10 – Use Channels Properly</h4>
+                                <span class="rule-penalty">Warning/Mute</span>
+                            </div>
+                            <div class="rule-description">
+                                Members must post in appropriate channels and follow channel topics. Misuse may result in warnings or mutes. Proper channel usage keeps the server organized.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Clips showing misuse are preferred; screenshots or witness statements may be accepted if staff allow.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item moderate">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 11 – No Impersonation</h4>
+                                <span class="rule-penalty">Instant Ban</span>
+                            </div>
+                            <div class="rule-description">
+                                Impersonating staff, members, or bots is strictly forbidden. Violators may face instant bans.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Proof is preferred via clips; screenshots or witness statements may be accepted. Staff exercise discretion in enforcement.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item severe">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 12 – No Malicious Links</h4>
+                                <span class="rule-penalty">Instant Ban</span>
+                            </div>
+                            <div class="rule-description">
+                                Posting links containing malware, scams, or phishing attempts is strictly forbidden. Violators may be banned immediately. This keeps all members safe online.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Clips showing the link and context are preferred; screenshots or witnesses may be accepted.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 13 – No Spreading Drama</h4>
+                                <span class="rule-penalty">Mute/Kick</span>
+                            </div>
+                            <div class="rule-description">
+                                Bringing unnecessary drama or conflict into the server is not allowed. Violators may be muted or kicked.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Proof, preferably clips, is required. Witness statements or screenshots may be considered if staff approve.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 14 – English Only</h4>
+                                <span class="rule-penalty">Warning/Mute</span>
+                            </div>
+                            <div class="rule-description">
+                                All chat must be in English unless stated otherwise. Violations may result in warnings or mutes.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Clips or screenshots are required for proof. Staff discretion applies when enforcing this rule.
+                            </div>
+                        </div>
+                        
+                        <div class="rule-item moderate">
+                            <div class="rule-header">
+                                <h4 class="rule-title">Rule 15 – Repeat Offenses</h4>
+                                <span class="rule-penalty">Escalated Punishments</span>
+                            </div>
+                            <div class="rule-description">
+                                Breaking rules repeatedly leads to escalated punishments including mutes, kicks, or bans. False witnesses will face temporary penalties. Strict enforcement ensures a safe and friendly Discord for all.
+                            </div>
+                            <div class="rule-proof">
+                                <strong>Proof Required:</strong> Clips are the most reliable proof; witnesses and screenshots are secondary.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="https://ik.imagekit.io/seqcqjmzq/LARP%20-%20made%20by%20star%202.png?updatedAt=1759093844096" alt="Los Angeles Roleplay Logo" class="footer-logo">
+                <h3>Los Angeles Roleplay</h3>
+                <p>Building the most immersive Los Angeles-based roleplay experience on Roblox since 2025.</p>
+                <div class="social-links">
+                    <a href="https://discord.gg/SAhNSas7yn" target="_blank">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="http://los-angeles-roleplay.online" class="footer-btn">Home</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/About" class="footer-btn">About Us</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Community" class="footer-btn">Community</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Staff" class="footer-btn">Staff</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Rules" class="footer-btn">Rules & Guidelines</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="http://los-angeles-roleplay.online/FAQ" class="footer-btn">FAQ</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Support" class="footer-btn">Support</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Docs" class="footer-btn">Developer Docs</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Departments" class="footer-btn">Departments</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Departments/Department-members" class="footer-btn">Department Members</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Programs</h3>
+                <ul>
+                    <li><a href="http://los-angeles-roleplay.online/We-Need-You" class="footer-btn">We Need You Program</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Applications" class="footer-btn">Applications</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Testing" class="footer-btn">Beta Testing</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Partners" class="footer-btn">Partners</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Events" class="footer-btn">Community Events</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="http://los-angeles-roleplay.online/Privacy-Policy" class="footer-btn">Privacy Policy</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Terms" class="footer-btn">Terms of Service</a></li>
+                    <li><a href="http://los-angeles-roleplay.online/Contact" class="footer-btn">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Los Angeles Roleplay Community. All rights reserved.</p>
+            <p>This site is not affiliated with Roblox Corporation.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            // Close menu when clicking on a link
+            document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }));
+            
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                    navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                } else {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                    navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+                }
+            });
+            
+            // Create particles
+            function createParticles(containerId, count) {
+                const container = document.getElementById(containerId);
+                for (let i = 0; i < count; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    const size = Math.random() * 5 + 2;
+                    const left = Math.random() * 100;
+                    const animationDuration = Math.random() * 20 + 10;
+                    const animationDelay = Math.random() * 5;
+                    
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.left = `${left}%`;
+                    particle.style.animationDuration = `${animationDuration}s`;
+                    particle.style.animationDelay = `${animationDelay}s`;
+                    
+                    container.appendChild(particle);
+                }
+            }
+            
+            createParticles('particles', 30);
+            createParticles('particles2', 20);
+            
+            // Tab functionality
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const rulesContents = document.querySelectorAll('.rules-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    rulesContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = btn.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
