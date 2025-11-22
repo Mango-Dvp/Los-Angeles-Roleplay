@@ -110,6 +110,14 @@
             width: 100%;
         }
         
+        .nav-link.active {
+            color: var(--accent);
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
         .nav-btn {
             background: var(--accent);
             color: var(--white);
@@ -486,6 +494,25 @@
             margin-bottom: 8px;
         }
         
+        .announcement-summary {
+            background: rgba(98, 160, 234, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .announcement-summary h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .announcement-summary p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+        
         .announcement-footer {
             padding: 20px 30px;
             background: var(--light);
@@ -546,28 +573,6 @@
         .action-btn:hover {
             background: var(--accent);
             color: var(--white);
-        }
-        
-        /* No Announcements State */
-        .no-announcements {
-            text-align: center;
-            padding: 60px 20px;
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-        }
-        
-        .no-announcements i {
-            font-size: 4rem;
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
-        
-        .no-announcements h3 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-family: 'Montserrat', sans-serif;
         }
         
         /* CTA Section */
@@ -957,9 +962,6 @@
                 <button class="filter-btn active" data-filter="all">
                     <i class="fas fa-layer-group"></i> All Announcements
                 </button>
-                <button class="filter-btn urgent" data-filter="urgent">
-                    <i class="fas fa-exclamation-circle"></i> Urgent
-                </button>
                 <button class="filter-btn important" data-filter="important">
                     <i class="fas fa-flag"></i> Important
                 </button>
@@ -973,84 +975,154 @@
             
             <div class="announcements-grid">
                 <!-- Announcement 1 -->
-                <div class="announcement-card" data-category="urgent">
+                <div class="announcement-card" data-category="important">
                     <div class="announcement-header">
                         <div>
-                            <h3 class="announcement-title">Zero Tolerance Policy Enforcement Update</h3>
+                            <h3 class="announcement-title">Staff Applications Are Open!</h3>
                             <div class="announcement-meta">
-                                <span><i class="far fa-calendar"></i> October 15, 2025</span>
-                                <span><i class="far fa-clock"></i> 2:30 PM PST</span>
+                                <span><i class="far fa-calendar"></i> October 25, 2025</span>
+                                <span><i class="far fa-clock"></i> 10:00 AM PST</span>
                             </div>
                         </div>
                     </div>
-                    <div class="announcement-badge badge-urgent">Urgent</div>
+                    <div class="announcement-badge badge-important">Important</div>
                     <div class="announcement-content">
-                        <p>Effective immediately, we are strengthening our Zero Tolerance Policy enforcement. All staff members have been instructed to take immediate action against any form of trolling, harassment, or rule violations without exceptions.</p>
-                        <p><strong>Key changes:</strong></p>
+                        <div class="announcement-summary">
+                            <h4>Summary</h4>
+                            <p>Our private LARP server is seeking dedicated staff members! This is your chance to join our team and help maintain one of the most professional and strict ER:LC roleplay servers.</p>
+                        </div>
+                        <p><strong>Opportunities:</strong></p>
+                        <p>Applicants can climb ranks up to Assistant Ownership based on performance. After the 5-day application window, all approved applicants will start as Trial Staff.</p>
+                        
+                        <p><strong>Requirements:</strong></p>
                         <ul>
-                            <li>Automatic 24-hour ban for first-time RDM/VDM offenses</li>
-                            <li>Permanent ban for any form of hate speech or discrimination</li>
-                            <li>Increased monitoring of roleplay quality and realism</li>
-                            <li>Stricter evidence requirements for appeals</li>
+                            <li>Must know everything about our server rules.</li>
+                            <li>Strong communication skills and professionalism.</li>
+                            <li>Dedication to helping the community and improving roleplay.</li>
+                            <li>Active participation and consistency.</li>
+                            <li>Ability to handle difficult situations calmly and responsibly.</li>
+                            <li>Be the best staff ERLC has ever seen</li>
                         </ul>
-                        <p>These measures are necessary to maintain the high-quality roleplay environment our community expects. Thank you for your understanding and cooperation.</p>
+                        
+                        <p><strong>Why Join Us:</strong></p>
+                        <ul>
+                            <li>Be part of a highly respected and strict server.</li>
+                            <li>Help shape the community and enforce top-tier roleplay standards.</li>
+                            <li>Gain valuable experience and potential for rapid promotion.</li>
+                            <li>Be apart of the future biggest ERLC server.</li>
+                        </ul>
+                        
+                        <p><strong>Apply Here:</strong> Staff Application Form</p>
+                        
+                        <p><strong>Spread the Word:</strong></p>
+                        <p>Let your friends know! Great staff make great servers, and we're looking for the best.</p>
                     </div>
                     <div class="announcement-footer">
                         <div class="announcement-author">
-                            <div class="author-avatar">S</div>
+                            <img src="https://ik.imagekit.io/seqcqjmzq/LARP%20-%20made%20by%20star%202.png?updatedAt=1759093844096" alt="Los Angeles Roleplay Logo" style="width: 40px; height: 40px; border-radius: 50%;">
                             <div class="author-info">
-                                <h4>Sittin</h4>
-                                <p>Owner & Founder</p>
+                                <h4>Los Angeles Roleplay</h4>
+                                <p>X Sittin</p>
                             </div>
                         </div>
                         <div class="announcement-actions">
-                            <button class="action-btn"><i class="far fa-bookmark"></i> Save</button>
-                            <button class="action-btn"><i class="fas fa-share-alt"></i> Share</button>
+                            <button class="action-btn share-btn" data-share-text=":LARP:  Los Angeles Roleplay – Staff Applications Are Open!
+Our private LARP server is seeking dedicated staff members! This is your chance to join our team and help maintain one of the most professional and strict ER:LC roleplay servers.
+
+:blueline:
+:blueline:
+:blueline:
+:blueline:
+
+Opportunities:
+Applicants can climb ranks up to Assistant Ownership based on performance.
+After the 5-day application window, all approved applicants will start as Trial Staff.
+
+:blueline:
+:blueline:
+:blueline:
+:blueline:
+
+Requirements:
+Must know everything about our server rules.
+Strong communication skills and professionalism.
+Dedication to helping the community and improving roleplay.
+Active participation and consistency.
+Ability to handle difficult situations calmly and responsibly.
+Be the best staff ERLC has ever seen
+
+:blueline:
+:blueline:
+:blueline:
+:blueline:
+
+Why Join Us:
+Be part of a highly respected and strict server.
+Help shape the community and enforce top-tier roleplay standards.
+Gain valuable experience and potential for rapid promotion.
+Be apart of the future biggest ERLC server.
+
+:blueline:
+:blueline:
+:blueline:
+:blueline:
+
+Apply Here: Staff Application Form
+
+:blueline:
+:blueline:
+:blueline:
+:blueline:
+
+Spread the Word:
+Let your friends know! Great staff make great servers, and we're looking for the best.
+<:LARP:1421608873126658159>  Los Angeles Roleplay – Staff Applications Are Open!
+
+Los Angeles Roleplay X Sittin">
+                                <i class="fas fa-share-alt"></i> Share
+                            </button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Announcement 2 -->
-                <div class="announcement-card" data-category="event">
+                <div class="announcement-card" data-category="update">
                     <div class="announcement-header">
                         <div>
-                            <h3 class="announcement-title">Community Event: Multi-Agency Training Day</h3>
+                            <h3 class="announcement-title">I apologize</h3>
                             <div class="announcement-meta">
-                                <span><i class="far fa-calendar"></i> October 20, 2025</span>
-                                <span><i class="far fa-clock"></i> 3:00 PM PST</span>
+                                <span><i class="far fa-calendar"></i> October 24, 2025</span>
+                                <span><i class="far fa-clock"></i> 3:45 PM PST</span>
                             </div>
                         </div>
                     </div>
-                    <div class="announcement-badge badge-event">Event</div>
+                    <div class="announcement-badge badge-update">Update</div>
                     <div class="announcement-content">
-                        <p>We're excited to announce our upcoming Multi-Agency Training Day! This event will bring together all departments for coordinated training exercises and scenario-based roleplay.</p>
-                        <p><strong>Event Details:</strong></p>
-                        <ul>
-                            <li><strong>Date:</strong> October 20, 2025</li>
-                            <li><strong>Time:</strong> 3:00 PM - 6:00 PM PST</li>
-                            <li><strong>Location:</strong> Los Angeles Roleplay Server</li>
-                            <li><strong>Participants:</strong> All department members</li>
-                        </ul>
-                        <p><strong>Training Exercises:</strong></p>
-                        <ol>
-                            <li>High-speed pursuit protocols</li>
-                            <li>Multi-agency response coordination</li>
-                            <li>Medical emergency procedures</li>
-                            <li>Hostage negotiation scenarios</li>
-                        </ol>
-                        <p>All participants will receive special recognition and potential rank advancements based on performance. Make sure to arrive on time and come prepared!</p>
+                        <div class="announcement-summary">
+                            <h4>Summary</h4>
+                            <p>Sittin apologizes for the recent inactivity and assures the community that Los Angeles Roleplay will open soon when he has the chance to work on it.</p>
+                        </div>
+                        <p>Over the past few weeks, school, development, and my other companies have been very stressful. I am sorry for not doing anything similar to Los Angeles Roleplay. But please keep trust because soon the community will be open when I have the chance to work on it,</p>
+                        <p>Thank you so much, and I am sorry again.</p>
                     </div>
                     <div class="announcement-footer">
                         <div class="announcement-author">
-                            <div class="author-avatar">L</div>
+                            <img src="https://ik.imagekit.io/seqcqjmzq/LARP%20-%20made%20by%20star%202.png?updatedAt=1759093844096" alt="Los Angeles Roleplay Logo" style="width: 40px; height: 40px; border-radius: 50%;">
                             <div class="author-info">
-                                <h4>Loveshot</h4>
-                                <p>Retired Co-Owner</p>
+                                <h4>Los Angeles Roleplay</h4>
+                                <p>X Sittin</p>
                             </div>
                         </div>
                         <div class="announcement-actions">
-                            <button class="action-btn"><i class="far fa-bookmark"></i> Save</button>
-                            <button class="action-btn"><i class="fas fa-share-alt"></i> Share</button>
+                            <button class="action-btn share-btn" data-share-text="# <:LARP:1421608873126658159> I apologize
+
+Over the past few weeks, school, development, and my other companies have been very stressful. I am sorry for not doing anything similar to Los Angeles Roleplay. But please keep trust because soon the community will be open when I have the chance to work on it,
+
+Thank you so much, and I am sorry again.
+
+Los Angeles Roleplay X Sittin">
+                                <i class="fas fa-share-alt"></i> Share
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1059,154 +1131,120 @@
                 <div class="announcement-card" data-category="update">
                     <div class="announcement-header">
                         <div>
-                            <h3 class="announcement-title">Server Update v2.1.5 Patch Notes</h3>
+                            <h3 class="announcement-title">CAD systems coming soon</h3>
                             <div class="announcement-meta">
-                                <span><i class="far fa-calendar"></i> October 12, 2025</span>
-                                <span><i class="far fa-clock"></i> 11:45 AM PST</span>
+                                <span><i class="far fa-calendar"></i> October 23, 2025</span>
+                                <span><i class="far fa-clock"></i> 2:15 PM PST</span>
                             </div>
                         </div>
                     </div>
                     <div class="announcement-badge badge-update">Update</div>
                     <div class="announcement-content">
-                        <p>We've just deployed Server Update v2.1.5 with several important fixes and improvements. The server will be more stable and performant with these changes.</p>
-                        <p><strong>Bug Fixes:</strong></p>
-                        <ul>
-                            <li>Fixed vehicle spawning issues in certain districts</li>
-                            <li>Resolved texture loading problems for new players</li>
-                            <li>Fixed radar system occasionally showing incorrect data</li>
-                            <li>Patched exploit allowing unauthorized vehicle modifications</li>
-                        </ul>
-                        <p><strong>Improvements:</strong></p>
-                        <ul>
-                            <li>Improved server performance during peak hours</li>
-                            <li>Enhanced vehicle physics for more realistic driving</li>
-                            <li>Updated police database with new vehicle models</li>
-                            <li>Optimized emergency response system algorithms</li>
-                        </ul>
-                        <p><strong>Known Issues:</strong></p>
-                        <ul>
-                            <li>Minor audio sync issues in cutscenes (being investigated)</li>
-                            <li>Occasional delay in department radio communications</li>
-                        </ul>
-                        <p>Please report any new issues to our development team through the appropriate channels.</p>
+                        <div class="announcement-summary">
+                            <h4>Summary</h4>
+                            <p>Custom CAD systems programmed by Sittin are coming soon to Los Angeles Roleplay. Be ready for our custom CAD systems programmed by Sittin.</p>
+                        </div>
+                        <p>Be ready for our custom cad systems programmed by Sittin</p>
                     </div>
                     <div class="announcement-footer">
                         <div class="announcement-author">
-                            <div class="author-avatar">S</div>
+                            <img src="https://ik.imagekit.io/seqcqjmzq/LARP%20-%20made%20by%20star%202.png?updatedAt=1759093844096" alt="Los Angeles Roleplay Logo" style="width: 40px; height: 40px; border-radius: 50%;">
                             <div class="author-info">
-                                <h4>Sittin</h4>
-                                <p>Developer & Owner</p>
+                                <h4>Los Angeles Roleplay</h4>
+                                <p>X Sittin</p>
                             </div>
                         </div>
                         <div class="announcement-actions">
-                            <button class="action-btn"><i class="far fa-bookmark"></i> Save</button>
-                            <button class="action-btn"><i class="fas fa-share-alt"></i> Share</button>
+                            <button class="action-btn share-btn" data-share-text="# <:cadsupport:1353026805237288990>  Cad systems coming soon....
+
+Be ready for our custom cad systems programmed by Sittin
+
+Los Angeles Roleplay X Sittin">
+                                <i class="fas fa-share-alt"></i> Share
+                            </button>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Announcement 4 -->
-                <div class="announcement-card" data-category="important">
+                <div class="announcement-card" data-category="event">
                     <div class="announcement-header">
                         <div>
-                            <h3 class="announcement-title">New Staff Applications Now Open</h3>
+                            <h3 class="announcement-title">Discord Server Open</h3>
                             <div class="announcement-meta">
-                                <span><i class="far fa-calendar"></i> October 8, 2025</span>
-                                <span><i class="far fa-clock"></i> 9:15 AM PST</span>
+                                <span><i class="far fa-calendar"></i> October 22, 2025</span>
+                                <span><i class="far fa-clock"></i> 12:00 PM PST</span>
                             </div>
                         </div>
                     </div>
-                    <div class="announcement-badge badge-important">Important</div>
+                    <div class="announcement-badge badge-event">Event</div>
                     <div class="announcement-content">
-                        <p>We're expanding our staff team! Applications are now open for Moderator and Administrator positions. This is a great opportunity to contribute to our community's growth and development.</p>
-                        <p><strong>Available Positions:</strong></p>
+                        <div class="announcement-summary">
+                            <h4>Summary</h4>
+                            <p>Los Angeles Roleplay is now officially OPEN! Join the Discord server and dive into a fully immersive roleplay experience.</p>
+                        </div>
+                        <p>🎉 Welcome to Los Angeles Roleplay!</p>
+                        <p>Los Angeles Roleplay is now officially OPEN! Dive into a fully immersive roleplay experience where your actions matter and every choice counts. (Only the discord)</p>
+                        
+                        <p><strong>Getting Started</strong></p>
                         <ul>
-                            <li><strong>Moderator (3 positions):</strong> Enforce rules, handle reports, assist players</li>
-                            <li><strong>Administrator (1 position):</strong> Manage departments, oversee events, staff coordination</li>
+                            <li>Verify yourself in ⁠「💎」discord-verification to unlock the server.</li>
+                            <li>Read the rules and guidelines in ⁠unknown to ensure a fun and safe environment.</li>
+                            <li>Explore all channels, roles, and events to find where you fit best.</li>
                         </ul>
-                        <p><strong>Requirements:</strong></p>
+                        
+                        <p><strong>Core Departments</strong></p>
                         <ul>
-                            <li>Minimum 3 months active membership in LARP</li>
-                            <li>Clean disciplinary record</li>
-                            <li>Strong understanding of all server rules</li>
-                            <li>Excellent communication skills</li>
-                            <li>Availability for at least 10 hours per week</li>
+                            <li>Los Angeles Police Department (LAPD) — Maintain law and order.</li>
+                            <li>Los Angeles Fire Department (LAFD) — Respond to fires and emergencies.</li>
+                            <li>Los Angeles EMS — Provide medical support and care.</li>
+                            <li>California Department of Public Safety — Oversees all department operations and ensures roleplay standards.</li>
                         </ul>
-                        <p><strong>Application Process:</strong></p>
-                        <ol>
-                            <li>Submit application form by October 22, 2025</li>
-                            <li>Initial screening and interview</li>
-                            <li>Practical assessment and trial period</li>
-                            <li>Final decision and onboarding</li>
-                        </ol>
-                        <p>Apply now through our website or Discord server. Good luck to all applicants!</p>
+                        
+                        <p><strong>Community & Events</strong></p>
+                        <p>Join regular server events, competitions, and community gatherings to level up your roleplay experience. Make friends, form factions, or just enjoy the city life!</p>
+                        
+                        <p><strong>Marketplace & Perks</strong></p>
+                        <p>Check out the Marketplace for VIP perks, advertisement options, and exclusive civilian tiers. Enhance your gameplay and stand out in the community!</p>
+                        
+                        <p><strong>Support</strong></p>
+                        <p>If you need help, contact our Support Team by opening a ticket in ⁠unknown. We're here to ensure everyone has a smooth and enjoyable experience.</p>
+                        
+                        <p>🎉 Welcome to Los Angeles Roleplay!</p>
                     </div>
                     <div class="announcement-footer">
                         <div class="announcement-author">
-                            <div class="author-avatar">H</div>
+                            <img src="https://ik.imagekit.io/seqcqjmzq/LARP%20-%20made%20by%20star%202.png?updatedAt=1759093844096" alt="Los Angeles Roleplay Logo" style="width: 40px; height: 40px; border-radius: 50%;">
                             <div class="author-info">
-                                <h4>Harley</h4>
-                                <p>Dedicated Member</p>
+                                <h4>Los Angeles Roleplay</h4>
+                                <p>X Sittin</p>
                             </div>
                         </div>
                         <div class="announcement-actions">
-                            <button class="action-btn"><i class="far fa-bookmark"></i> Save</button>
-                            <button class="action-btn"><i class="fas fa-share-alt"></i> Share</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Announcement 5 - We Need You Program -->
-                <div class="announcement-card" data-category="important">
-                    <div class="announcement-header">
-                        <div>
-                            <h3 class="announcement-title">We Need You Program: Livery & Uniform Designers Wanted</h3>
-                            <div class="announcement-meta">
-                                <span><i class="far fa-calendar"></i> October 5, 2025</span>
-                                <span><i class="far fa-clock"></i> 4:20 PM PST</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="announcement-badge badge-important">Important</div>
-                    <div class="announcement-content">
-                        <p>Hello to all members of the Los Angeles Roleplay community. This is an official and very important announcement from the Los Angeles Roleplay founder. We're not only offering you opportunities but also the chance to make this community way better and to have leadership positions.</p>
-                        
-                        <h4><i class="fas fa-hands-helping"></i> Where I Have Been</h4>
-                        <p>I have been on a development journey with learning more programs, managing companies as an entrepreneur, and many more personal things and activities.</p>
-                        <p>To be honest with you guys, I have not been focusing on Los Angeles Roleplay, but it's time to change that as I'm not going to let this community fail like I did the others.</p>
-                        
-                        <h4><i class="fas fa-tasks"></i> What We Need From You</h4>
-                        <p>I am a livery designer as well as a developer for Discord, but due to me being very busy and dealing with a lot of personal projects, I need a lot of help.</p>
-                        <p>Before 7 days hits, I'm going to need at least three livery designers and uniform designers immediately due to me not being able to do it currently.</p>
-                        
-                        <h4><i class="fas fa-money-bill-wave"></i> What You Get</h4>
-                        <p>Depending on how many liveries you do a month and their quality (whether it's good or bad), you will get a different amount.</p>
-                        <p><strong>Requirements:</strong></p>
-                        <ul>
-                            <li>You must make at least two liveries every 7 days</li>
-                            <li>They must reach good quality standards</li>
-                            <li>If you only do one livery and it's medium quality, you will be terminated</li>
-                            <li>Failure to meet requirements will result in immediate termination</li>
-                        </ul>
-                        <p><strong>Compensation:</strong> 3,000 - 12,000 Robux per month based on quality and quantity of work</p>
-                        
-                        <h4><i class="fas fa-plus-circle"></i> Extras</h4>
-                        <p>Once again, I'm sorry for being gone, but I hope that can be moved to the side for us to start this community up successfully and begin the Roblox community.</p>
-                        <p>We need you for liveries due to us not even having three liveries quite yet or uniforms.</p>
-                        <p><strong>Los Angeles Roleplay X Sittin</strong></p>
-                    </div>
-                    <div class="announcement-footer">
-                        <div class="announcement-author">
-                            <div class="author-avatar">S</div>
-                            <div class="author-info">
-                                <h4>Sittin</h4>
-                                <p>Founder & Owner</p>
-                            </div>
-                        </div>
-                        <div class="announcement-actions">
-                            <button class="action-btn"><i class="far fa-bookmark"></i> Save</button>
-                            <button class="action-btn"><i class="fas fa-share-alt"></i> Share</button>
-                            <a href="http://los-angeles-roleplay.online/We-Need-You" class="action-btn" style="text-decoration: none;"><i class="fas fa-arrow-right"></i> Apply Now</a>
+                            <button class="action-btn share-btn" data-share-text="(Discord server open)
+
+🎉 Welcome to Los Angeles Roleplay!
+Los Angeles Roleplay is now officially OPEN! Dive into a fully immersive roleplay experience where your actions matter and every choice counts. (Only the discord)
+Getting Started
+Verify yourself in ⁠「💎」discord-verification to unlock the server.
+Read the rules and guidelines in ⁠unknown to ensure a fun and safe environment.
+Explore all channels, roles, and events to find where you fit best.
+Core Departments
+Los Angeles Police Department (LAPD) — Maintain law and order.
+Los Angeles Fire Department (LAFD) — Respond to fires and emergencies.
+Los Angeles EMS — Provide medical support and care.
+California Department of Public Safety — Oversees all department operations and ensures roleplay standards.
+Community & Events
+Join regular server events, competitions, and community gatherings to level up your roleplay experience. Make friends, form factions, or just enjoy the city life!
+Marketplace & Perks
+Check out the Marketplace for VIP perks, advertisement options, and exclusive civilian tiers. Enhance your gameplay and stand out in the community!
+Support
+If you need help, contact our Support Team by opening a ticket in ⁠unknown. We're here to ensure everyone has a smooth and enjoyable experience.
+🎉 Welcome to Los Angeles Roleplay!
+
+Los Angeles roleplay X Sittin">
+                                <i class="fas fa-share-alt"></i> Share
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1365,6 +1403,35 @@
                             card.style.display = 'none';
                         }
                     });
+                });
+            });
+            
+            // Share functionality
+            const shareBtns = document.querySelectorAll('.share-btn');
+            
+            shareBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const textToCopy = this.getAttribute('data-share-text');
+                    
+                    // Create a temporary textarea element
+                    const textArea = document.createElement('textarea');
+                    textArea.value = textToCopy;
+                    document.body.appendChild(textArea);
+                    
+                    // Select and copy the text
+                    textArea.select();
+                    document.execCommand('copy');
+                    
+                    // Remove the temporary element
+                    document.body.removeChild(textArea);
+                    
+                    // Provide visual feedback
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                    }, 2000);
                 });
             });
             
