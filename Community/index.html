@@ -482,91 +482,50 @@
             font-family: monospace;
         }
         
-        /* Events */
-        .events {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
             margin-top: 50px;
+            text-align: center;
         }
         
-        .event-card {
+        .stat-item {
+            margin: 20px;
+            padding: 30px;
+            min-width: 200px;
             background: var(--white);
             border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
             transition: all 0.5s ease;
-            position: relative;
-            transform: translateY(50px);
+            transform: scale(0);
             opacity: 0;
         }
         
-        .event-card.visible {
-            transform: translateY(0);
+        .stat-item.visible {
+            transform: scale(1);
             opacity: 1;
         }
         
-        .event-card:hover {
-            transform: translateY(-10px) scale(1.03);
+        .stat-item:hover {
+            transform: translateY(-10px) scale(1.05);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         
-        .event-date {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--accent);
-            color: var(--white);
-            padding: 10px 15px;
-            border-radius: 10px;
-            font-weight: 600;
-            z-index: 2;
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            display: block;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         
-        .event-img {
-            height: 180px;
-            background: var(--secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .event-img::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-        
-        .event-card:hover .event-img::before {
-            left: 100%;
-        }
-        
-        .event-content {
-            padding: 25px;
-        }
-        
-        .event-content h3 {
-            font-size: 1.6rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .event-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
+        .stat-label {
+            font-size: 1.2rem;
+            margin-top: 15px;
             color: var(--dark);
-            font-size: 0.9rem;
+            font-weight: 600;
         }
         
         /* Discord Section */
@@ -621,52 +580,6 @@
         .btn-discord {
             background: var(--white);
             color: #5865F2;
-        }
-        
-        /* Stats */
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-top: 50px;
-            text-align: center;
-        }
-        
-        .stat-item {
-            margin: 20px;
-            padding: 30px;
-            min-width: 200px;
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.5s ease;
-            transform: scale(0);
-            opacity: 0;
-        }
-        
-        .stat-item.visible {
-            transform: scale(1);
-            opacity: 1;
-        }
-        
-        .stat-item:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: bold;
-            color: var(--accent);
-            display: block;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .stat-label {
-            font-size: 1.2rem;
-            margin-top: 15px;
-            color: var(--dark);
-            font-weight: 600;
         }
         
         /* Footer */
@@ -942,7 +855,7 @@
         <div class="particles" id="particles"></div>
         <div class="hero-content">
             <h1>Our Community</h1>
-            <p>Join hundreds of dedicated roleplayers in the most immersive Los Angeles roleplay experience</p>
+            <p>Join our dedicated roleplayers in the most immersive Los Angeles roleplay experience</p>
             <div class="hero-btns">
                 <a href="https://discord.gg/SAhNSas7yn" target="_blank" class="btn">Join Discord</a>
                 <a href="http://los-angeles-roleplay.online/Applications" class="btn btn-secondary">Apply Now</a>
@@ -964,7 +877,7 @@
                         <i class="fas fa-users"></i>
                     </div>
                     <h3>Active & Friendly</h3>
-                    <p>Join hundreds of active members who are always ready to help newcomers and create amazing roleplay scenarios together.</p>
+                    <p>Join our active members who are always ready to help newcomers and create amazing roleplay scenarios together.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -1038,15 +951,15 @@
             </div>
             <div class="stats">
                 <div class="stat-item">
-                    <span class="stat-number">500+</span>
+                    <span class="stat-number">100+</span>
                     <span class="stat-label">Community Members</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">100+</span>
+                    <span class="stat-number">20+</span>
                     <span class="stat-label">Active Weekly</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">50+</span>
+                    <span class="stat-number">5+</span>
                     <span class="stat-label">Events Monthly</span>
                 </div>
                 <div class="stat-item">
@@ -1200,8 +1113,6 @@
                             entry.target.classList.add('visible');
                         } else if (entry.target.classList.contains('member-card')) {
                             entry.target.classList.add('visible');
-                        } else if (entry.target.classList.contains('event-card')) {
-                            entry.target.classList.add('visible');
                         } else if (entry.target.classList.contains('stat-item')) {
                             entry.target.classList.add('visible');
                         }
@@ -1215,10 +1126,6 @@
             });
             
             document.querySelectorAll('.member-card').forEach(card => {
-                observer.observe(card);
-            });
-            
-            document.querySelectorAll('.event-card').forEach(card => {
                 observer.observe(card);
             });
             
