@@ -293,6 +293,9 @@
             opacity: 0;
             transform: translateX(50px);
             transition: all 0.8s ease;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
         .about-image.visible {
@@ -300,16 +303,10 @@
             transform: translateX(0);
         }
         
-        .about-image-placeholder {
-            height: 400px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 4rem;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
         
         /* Mission & Vision */
@@ -483,6 +480,109 @@
             font-weight: bold;
             color: var(--accent);
             margin-bottom: 10px;
+        }
+        
+        /* Founder Section */
+        .founder-section {
+            text-align: center;
+            margin-top: 80px;
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--white);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .founder-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://ik.imagekit.io/seqcqjmzq/19cf212d18c5c862c4bc1a8e3848b16d.jpg') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .founder-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .founder-header {
+            margin-bottom: 40px;
+        }
+        
+        .founder-header h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .founder-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .founder-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--white);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .founder-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .founder-details {
+            text-align: left;
+            max-width: 400px;
+        }
+        
+        .founder-details h3 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .founder-role {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .founder-stats {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .founder-stat {
+            text-align: center;
+        }
+        
+        .founder-stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .founder-stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
         
         /* Team Section */
@@ -834,6 +934,19 @@
                 right: auto;
             }
             
+            .founder-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .founder-details {
+                text-align: center;
+            }
+            
+            .founder-stats {
+                justify-content: center;
+            }
+            
             .cta h2 {
                 font-size: 2.5rem;
             }
@@ -850,6 +963,14 @@
             }
             
             .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .founder-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .founder-details h3 {
                 font-size: 2rem;
             }
         }
@@ -912,13 +1033,49 @@
             <div class="about-content">
                 <div class="about-text">
                     <h3>Building Los Angeles Roleplay</h3>
-                    <p>Los Angeles Roleplay was founded in 2023 with a simple vision: to create the most immersive and authentic Los Angeles-based roleplay experience on the Roblox platform.</p>
+                    <p>Los Angeles Roleplay was founded in 2025 with a simple vision: to create the most immersive and authentic Los Angeles-based roleplay experience on the Roblox platform.</p>
                     <p>What started as a small group of dedicated roleplayers has grown into a vibrant community of over 100 active members, featuring 8+ specialized departments and round-the-clock roleplay opportunities.</p>
                     <p>Our commitment to quality, authenticity, and community engagement has made us one of the most respected roleplay communities in the Roblox universe.</p>
                 </div>
                 <div class="about-image">
-                    <div class="about-image-placeholder">
-                        <i class="fas fa-history"></i>
+                    <img src="https://ik.imagekit.io/seqcqjmzq/128b54e4-0105-4f33-a045-2b2e8693b06d_screenshot2025-05-27133508.webp?updatedAt=1754801090725" alt="Los Angeles Roleplay History">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="founder-section">
+                <div class="founder-content">
+                    <div class="founder-header">
+                        <h2>Meet Our Founder</h2>
+                        <p>The visionary behind Los Angeles Roleplay</p>
+                    </div>
+                    <div class="founder-info">
+                        <div class="founder-avatar">
+                            <img src="https://ik.imagekit.io/seqcqjmzq/246fa7a21be7ee10245b7bc38b46cc06.webp" alt="Founder Sittin">
+                        </div>
+                        <div class="founder-details">
+                            <h3>Sittin</h3>
+                            <div class="founder-role">Founder & Community Leader</div>
+                            <div class="founder-stats">
+                                <div class="founder-stat">
+                                    <div class="founder-stat-value">He/Him</div>
+                                    <div class="founder-stat-label">Pronouns</div>
+                                </div>
+                                <div class="founder-stat">
+                                    <div class="founder-stat-value">2025</div>
+                                    <div class="founder-stat-label">Founded</div>
+                                </div>
+                                <div class="founder-stat">
+                                    <div class="founder-stat-value">1420968506794709042</div>
+                                    <div class="founder-stat-label">Discord ID</div>
+                                </div>
+                            </div>
+                            <p>Sittin envisioned a community where roleplayers could experience authentic Los Angeles emergency services simulations with realistic departments, procedures, and community engagement. His dedication to quality and innovation continues to drive our community forward.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -926,7 +1083,7 @@
     </section>
 
     <!-- Mission & Vision Section -->
-    <section class="section section-alt">
+    <section class="section">
         <div class="container">
             <div class="section-header">
                 <h2>Our Mission & Vision</h2>
@@ -952,7 +1109,7 @@
     </section>
 
     <!-- Values Section -->
-    <section class="section">
+    <section class="section section-alt">
         <div class="container">
             <div class="section-header">
                 <h2>Our Values</h2>
@@ -992,7 +1149,7 @@
     </section>
 
     <!-- Timeline Section -->
-    <section class="section section-alt">
+    <section class="section">
         <div class="container">
             <div class="section-header">
                 <h2>Our Journey</h2>
@@ -1002,41 +1159,41 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date">January 2023</div>
+                        <div class="timeline-date">January 2025</div>
                         <h4>Community Founded</h4>
-                        <p>Los Angeles Roleplay was officially established with a small team of dedicated founders.</p>
+                        <p>Los Angeles Roleplay was officially established by Sittin with a vision for authentic roleplay.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date">March 2023</div>
-                        <h4>First Departments Launched</h4>
-                        <p>Police, Fire, and Medical departments went live with custom uniforms and vehicles.</p>
+                        <div class="timeline-date">February 2025</div>
+                        <h4>Core Departments Launched</h4>
+                        <p>Police, Fire, and Medical departments went live with initial custom content and procedures.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date">June 2023</div>
-                        <h4>Discord Community Growth</h4>
-                        <p>Reached 50+ active members and established our official Discord server.</p>
+                        <div class="timeline-date">March 2025</div>
+                        <h4>Discord Community Established</h4>
+                        <p>Official Discord server launched, creating a hub for community interaction and coordination.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date">September 2023</div>
+                        <div class="timeline-date">April 2025</div>
                         <h4>Federal Agencies Added</h4>
-                        <p>Expanded with FBI, DEA, and Homeland Security departments for specialized roleplay.</p>
+                        <p>Expanded with FBI, DEA, and specialized units for enhanced roleplay opportunities.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-date">January 2024</div>
+                        <div class="timeline-date">May 2025</div>
                         <h4>100+ Member Milestone</h4>
-                        <p>Celebrated reaching over 100 active community members with special events.</p>
+                        <p>Celebrated reaching over 100 active community members with special events and features.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1052,23 +1209,13 @@
     </section>
 
     <!-- Team Section -->
-    <section class="section">
+    <section class="section section-alt">
         <div class="container">
             <div class="section-header">
                 <h2>Leadership Team</h2>
                 <p>The dedicated individuals guiding our community</p>
             </div>
             <div class="team">
-                <div class="team-member">
-                    <div class="member-image">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <div class="member-info">
-                        <h4>Founder</h4>
-                        <div class="member-role">Community Leader</div>
-                        <p>Visionary behind Los Angeles Roleplay, dedicated to creating the best roleplay experience.</p>
-                    </div>
-                </div>
                 <div class="team-member">
                     <div class="member-image">
                         <i class="fas fa-user-shield"></i>
@@ -1099,6 +1246,16 @@
                         <p>Designing custom liveries, uniforms, and visual assets for all departments.</p>
                     </div>
                 </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="member-info">
+                        <h4>Moderators</h4>
+                        <div class="member-role">Support Team</div>
+                        <p>Maintaining a positive community environment and assisting members with any issues.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1121,7 +1278,7 @@
             <div class="footer-section">
                 <img src="https://ik.imagekit.io/seqcqjmzq/LARP%20-%20made%20by%20star%202.png?updatedAt=1759093844096" alt="Los Angeles Roleplay Logo" class="footer-logo">
                 <h3>Los Angeles Roleplay</h3>
-                <p>Building the most immersive Los Angeles-based roleplay experience on Roblox since 2023.</p>
+                <p>Building the most immersive Los Angeles-based roleplay experience on Roblox since 2025.</p>
                 <div class="social-links">
                     <a href="https://discord.gg/SAhNSas7yn" target="_blank">
                         <i class="fab fa-discord"></i>
