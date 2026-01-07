@@ -3,1151 +3,1143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Los Angeles Roleplay - Official Community</title>
-    <link rel="icon" type="image/png" href="https://ik.imagekit.io/seqcqjmzq/LARP%20-%20made%20by%20star%202.png?updatedAt=1759093844096">
+
+    <!-- Favicon (Purple Brain Icon) -->
+    <link rel="icon" type="image/svg+xml" href="/public/images/favicon.svg">
+    <link rel="alternate icon" href="/public/images/favicon.svg">
+
+    <!-- SEO Meta Tags -->
+    <title>Build AI-Powered Web Apps Without Coding | Prompt Machine</title>
+    <meta name="description" content="Create AI chatbots, calculators, forms, and interactive tools in minutes without coding. Prompt Machine turns your ideas into deployed AI apps instantly. Start free today.">
+    <meta name="keywords" content="AI app builder, no-code AI, create chatbot, AI tool builder, build AI apps, AI web apps, no-code platform, AI automation, instant deployment">
+    <meta name="author" content="Prompt Machine">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://app.prompt-machine.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://app.prompt-machine.com/">
+    <meta property="og:site_name" content="Prompt Machine">
+    <meta property="og:title" content="Build AI-Powered Web Apps Without Coding">
+    <meta property="og:description" content="Turn your ideas into deployed AI apps in minutes. No coding required. Create chatbots, calculators, forms, and more with AI.">
+    <meta property="og:image" content="https://app.prompt-machine.com/images/og-main.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://app.prompt-machine.com/">
+    <meta name="twitter:title" content="Build AI-Powered Web Apps Without Coding">
+    <meta name="twitter:description" content="Turn your ideas into deployed AI apps in minutes. No coding required.">
+    <meta name="twitter:image" content="https://app.prompt-machine.com/images/og-main.jpg">
+
+    <!-- Additional Meta -->
+    <meta name="theme-color" content="#7c3aed">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Prompt Machine",
+        "description": "Build AI-powered web applications without coding. Create chatbots, calculators, forms, and interactive tools instantly with AI.",
+        "url": "https://app.prompt-machine.com/",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "Prompt Machine",
+            "url": "https://prompt-machine.com"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "312",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "featureList": [
+            "No-Code AI App Builder",
+            "Instant Deployment",
+            "AI Chatbot Creation",
+            "Interactive Forms & Calculators",
+            "Free to Start",
+            "Template Gallery"
+        ]
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --primary: #1a5fb4;
-            --secondary: #62a0ea;
-            --accent: #3584e4;
-            --light: #f6f5f4;
-            --dark: #241f31;
-            --white: #ffffff;
-            --gradient: linear-gradient(135deg, var(--primary), var(--secondary), var(--white));
-        }
-        
-        body {
-            background: var(--gradient);
-            color: var(--dark);
-            line-height: 1.6;
-            min-height: 100vh;
-            font-family: 'Open Sans', sans-serif;
-            overflow-x: hidden;
-        }
-        
-        /* Navigation */
-        .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-        
-        .nav-logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .nav-logo img {
-            height: 50px;
-            transition: transform 0.3s ease;
-        }
-        
-        .nav-logo:hover img {
-            transform: scale(1.05);
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-item {
-            margin: 0 15px;
-        }
-        
-        .nav-link {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover {
-            color: var(--accent);
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .nav-btn {
-            background: var(--accent);
-            color: var(--white);
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(53, 132, 228, 0.3);
-        }
-        
-        .nav-btn:hover {
-            background: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(53, 132, 228, 0.4);
-        }
-        
-        .hamburger {
-            display: none;
-            cursor: pointer;
-        }
-        
-        .bar {
-            display: block;
-            width: 25px;
-            height: 3px;
-            margin: 5px auto;
-            transition: all 0.3s ease;
-            background-color: var(--dark);
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-            padding-top: 70px;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 14, 41, 0.7);
-            z-index: 1;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 0 20px;
-        }
-        
-        .hero h1 {
-            font-size: 4.5rem;
-            margin-bottom: 20px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-            animation: slideInDown 1s ease-out 0.5s both;
-        }
-        
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            animation: slideInUp 1s ease-out 0.8s both;
-        }
-        
-        .hero-btns {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            animation: fadeIn 1.5s ease-out 1.2s both;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--white);
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-        
-        .btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
-        }
-        
-        .btn:hover::before {
-            left: 100%;
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            border: 2px solid var(--white);
-        }
-        
-        /* Animated Background Elements */
-        .floating-shapes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .shape {
-            position: absolute;
-            opacity: 0.1;
-            animation: float 20s infinite linear;
-        }
-        
-        .shape-1 {
-            width: 100px;
-            height: 100px;
-            background: var(--accent);
-            border-radius: 50%;
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-        
-        .shape-2 {
-            width: 150px;
-            height: 150px;
-            background: var(--secondary);
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            top: 60%;
-            left: 80%;
-            animation-delay: -5s;
-        }
-        
-        .shape-3 {
-            width: 80px;
-            height: 80px;
-            background: var(--primary);
-            border-radius: 50%;
-            top: 80%;
-            left: 20%;
-            animation-delay: -10s;
-        }
-        
-        .shape-4 {
-            width: 120px;
-            height: 120px;
-            background: var(--accent);
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            top: 20%;
-            left: 80%;
-            animation-delay: -15s;
-        }
-        
-        /* Sections */
-        .section {
-            padding: 100px 0;
-            background: rgba(255, 255, 255, 0.95);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .section-alt {
-            background: rgba(246, 245, 244, 0.95);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-header h2 {
-            font-size: 3rem;
-            color: var(--primary);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-        
-        .section-header p {
-            font-size: 1.2rem;
-            color: var(--dark);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        /* Features */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .feature-card {
-            background: var(--white);
-            padding: 40px 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            transition: all 0.5s ease;
-            position: relative;
-            overflow: hidden;
-            transform: translateY(50px);
-            opacity: 0;
-        }
-        
-        .feature-card.visible {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.5s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .feature-icon {
-            font-size: 3.5rem;
-            color: var(--accent);
-            margin-bottom: 25px;
-            transition: all 0.5s ease;
-        }
-        
-        .feature-card:hover .feature-icon {
-            transform: scale(1.2) rotate(5deg);
-        }
-        
-        .feature-card h3 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        /* Departments */
-        .departments {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 50px;
-        }
-        
-        .department-card {
-            background: var(--white);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            transition: all 0.5s ease;
-            position: relative;
-            transform: translateY(50px);
-            opacity: 0;
-        }
-        
-        .department-card.visible {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        
-        .department-card:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .department-img {
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            background-color: #f6f5f4;
-        }
-        
-        .department-img img {
-            max-width: 80%;
-            max-height: 80%;
-            object-fit: contain;
-            transition: all 0.5s ease;
-        }
-        
-        .department-card:hover .department-img img {
-            transform: scale(1.1);
-        }
-        
-        .department-img::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-        
-        .department-card:hover .department-img::before {
-            left: 100%;
-        }
-        
-        .department-content {
-            padding: 25px;
-        }
-        
-        .department-content h3 {
-            font-size: 1.6rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        /* Stats */
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-top: 50px;
-            text-align: center;
-        }
-        
-        .stat-item {
-            margin: 20px;
-            padding: 30px;
-            min-width: 200px;
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.5s ease;
-            transform: scale(0);
-            opacity: 0;
-        }
-        
-        .stat-item.visible {
-            transform: scale(1);
-            opacity: 1;
-        }
-        
-        .stat-item:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: bold;
-            color: var(--accent);
-            display: block;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .stat-label {
-            font-size: 1.2rem;
-            margin-top: 15px;
-            color: var(--dark);
-            font-weight: 600;
-        }
-        
-        /* CTA Section */
-        .cta {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: var(--white);
-            text-align: center;
-            padding: 100px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: rotate(45deg);
-            animation: shine 3s infinite;
-        }
-        
-        .cta h2 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            font-family: 'Montserrat', sans-serif;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .cta p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .cta-btns {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .btn-light {
-            background: var(--white);
-            color: var(--primary);
-        }
-        
-        /* Footer */
-        footer {
-            background: rgba(10, 14, 41, 0.95);
-            color: var(--white);
-            padding: 70px 0 30px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .footer-section h3 {
-            color: var(--accent);
-            margin-bottom: 25px;
-            font-size: 1.5rem;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section ul li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-section ul li a {
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        
-        .footer-section ul li a:hover {
-            color: var(--accent);
-            transform: translateX(5px);
-        }
-        
-        .footer-logo {
-            max-width: 180px;
-            margin-bottom: 20px;
-        }
-        
-        .social-links {
-            margin: 25px 0;
-        }
-        
-        .social-links a {
-            display: inline-block;
-            margin: 0 12px;
-            font-size: 1.8rem;
-            color: var(--accent);
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            transform: translateY(-5px) scale(1.2);
-            color: var(--secondary);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 40px;
-            margin-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .footer-btn {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--white);
-            padding: 10px 18px;
-            margin: 5px;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes slideInDown {
-            from { 
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes slideInUp {
-            from { 
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes shine {
-            0% { transform: translateX(-100%) rotate(45deg); }
-            100% { transform: translateX(200%) rotate(45deg); }
-        }
-        
+        /* Custom animations */
         @keyframes float {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.1;
-            }
-            90% {
-                opacity: 0.1;
-            }
-            100% {
-                transform: translateY(-1000px) rotate(720deg);
-                opacity: 0;
-            }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
-        
-        /* Particle Background */
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
         }
-        
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            animation: float 15s infinite linear;
+
+        .gradient-animate {
+            background-size: 200% 200%;
+            animation: gradient-shift 15s ease infinite;
         }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                flex-direction: column;
-                background-color: var(--white);
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-                padding: 20px 0;
-            }
-            
-            .nav-menu.active {
-                left: 0;
-            }
-            
-            .nav-item {
-                margin: 15px 0;
-            }
-            
-            .hamburger {
-                display: block;
-            }
-            
-            .hamburger.active .bar:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .hamburger.active .bar:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-            
-            .hamburger.active .bar:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
-            }
-            
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            .section-header h2 {
-                font-size: 2.5rem;
-            }
-            
-            .cta h2 {
-                font-size: 2.5rem;
-            }
+
+        .feature-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .btn {
-                padding: 12px 25px;
-                font-size: 1rem;
-            }
-            
-            .section-header h2 {
-                font-size: 2rem;
-            }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
     </style>
 </head>
-<body>
+<body class="bg-gradient-to-br from-purple-50 to-indigo-100">
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="http://los-angeles-roleplay.online">
-                    <img src="https://ik.imagekit.io/seqcqjmzq/LARP%20-%20made%20by%20star%202.png?updatedAt=1759093844096" alt="Los Angeles Roleplay Logo">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm" role="navigation">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="/" class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-magic text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-gray-900 text-lg">Prompt Machine</div>
+                        <div class="text-xs text-gray-500">Build AI Apps Instantly</div>
+                    </div>
                 </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#modules" class="text-gray-700 hover:text-purple-600 transition font-medium">Modules</a>
+                    <a href="#features" class="text-gray-700 hover:text-purple-600 transition font-medium">Features</a>
+                    <a href="#how-it-works" class="text-gray-700 hover:text-purple-600 transition font-medium">How It Works</a>
+                    <div class="relative" id="directoryDropdown">
+                        <button id="directoryDropdownBtn" class="text-gray-700 hover:text-purple-600 transition font-medium flex items-center gap-1">
+                            Directory
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div id="directoryDropdownMenu" class="hidden absolute top-full right-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50">
+                            <a href="/directory/pe25/" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 transition border-b border-gray-100">
+                                <i class="fas fa-wand-magic-sparkles" style="color: #a855f7;"></i>
+                                <span>PE 2.5 Tools</span>
+                            </a>
+                            <a href="/directory/pe2/" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 transition border-b border-gray-100">
+                                <i class="fas fa-robot" style="color: #3b82f6;"></i>
+                                <span>PE 2 Tools</span>
+                            </a>
+                            <a href="/directory/instavibe/" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 transition border-b border-gray-100">
+                                <i class="fas fa-bolt" style="color: #10b981;"></i>
+                                <span>InstaVibe Apps</span>
+                            </a>
+                            <a href="/directory/monetizer/" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 hover:bg-purple-50 transition">
+                                <i class="fas fa-coins" style="color: #f59e0b;"></i>
+                                <span>AI Content</span>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="#pricing" class="text-gray-700 hover:text-purple-600 transition font-medium">Pricing</a>
+                    <a href="/login.html" class="text-gray-700 hover:text-purple-600 transition font-medium">Sign In</a>
+                    <a href="/register.html" class="px-6 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg hover:from-purple-700 hover:to-indigo-700 transition font-semibold shadow-md">
+                        Start Free
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                    <i id="mobileMenuIcon" class="fas fa-bars text-gray-700"></i>
+                </button>
             </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="http://los-angeles-roleplay.online" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="http://los-angeles-roleplay.online/About" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="http://los-angeles-roleplay.online/Departments" class="nav-link">Departments</a>
-                </li>
-                <li class="nav-item">
-                    <a href="http://los-angeles-roleplay.online/Community" class="nav-link">Community</a>
-                </li>
-                <li class="nav-item">
-                    <a href="http://los-angeles-roleplay.online/We-Need-You" class="nav-link nav-btn">We Need You</a>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden py-4 border-t border-gray-200">
+                <div class="flex flex-col space-y-4">
+                    <a href="#modules" class="text-gray-700 hover:text-purple-600 transition font-medium">Modules</a>
+                    <a href="#features" class="text-gray-700 hover:text-purple-600 transition font-medium">Features</a>
+                    <a href="#how-it-works" class="text-gray-700 hover:text-purple-600 transition font-medium">How It Works</a>
+                    <div class="border-l-2 border-purple-300 pl-4">
+                        <p class="text-sm text-gray-500 font-semibold mb-2">Directory</p>
+                        <a href="/directory/pe25/" class="flex items-center gap-2 text-gray-700 hover:text-purple-600 transition font-medium mb-2">
+                            <i class="fas fa-wand-magic-sparkles text-purple-600"></i>
+                            PE 2.5 Tools
+                        </a>
+                        <a href="/directory/pe2/" class="flex items-center gap-2 text-gray-700 hover:text-purple-600 transition font-medium mb-2">
+                            <i class="fas fa-robot text-blue-600"></i>
+                            PE 2 Tools
+                        </a>
+                        <a href="/directory/instavibe/" class="flex items-center gap-2 text-gray-700 hover:text-purple-600 transition font-medium mb-2">
+                            <i class="fas fa-bolt text-green-600"></i>
+                            InstaVibe Apps
+                        </a>
+                        <a href="/directory/monetizer/" class="flex items-center gap-2 text-gray-700 hover:text-purple-600 transition font-medium">
+                            <i class="fas fa-coins text-amber-600"></i>
+                            AI Content
+                        </a>
+                    </div>
+                    <a href="#pricing" class="text-gray-700 hover:text-purple-600 transition font-medium">Pricing</a>
+                    <a href="/login.html" class="text-gray-700 hover:text-purple-600 transition font-medium">Sign In</a>
+                    <a href="/register.html" class="px-6 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg text-center font-semibold">
+                        Start Free
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="floating-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-            <div class="shape shape-4"></div>
+    <section class="pt-32 pb-20 bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600 gradient-animate text-white overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div class="space-y-8">
+                    <div class="inline-block px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-sm font-semibold">
+                        <i class="fas fa-sparkles mr-2"></i>
+                        Powered by Advanced AI - No Coding Required
+                    </div>
+
+                    <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+                        Build AI Apps
+                        <span class="block text-yellow-300">In Minutes, Not Months</span>
+                    </h1>
+
+                    <p class="text-xl text-purple-100 leading-relaxed">
+                        Turn your ideas into live AI-powered web apps instantly. Create chatbots, calculators, forms, quizzes, and more without writing a single line of code.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="/register.html" class="px-8 py-4 bg-white text-purple-600 rounded-lg hover:bg-gray-100 transition font-bold text-lg shadow-xl text-center">
+                            <i class="fas fa-rocket mr-2"></i>
+                            Start Building Free
+                        </a>
+                        <a href="#how-it-works" class="px-8 py-4 bg-white/10 backdrop-blur-md border-2 border-white/30 text-white rounded-lg hover:bg-white/20 transition font-bold text-lg text-center">
+                            <i class="fas fa-play-circle mr-2"></i>
+                            See How It Works
+                        </a>
+                    </div>
+
+                    <!-- Trust Indicators -->
+                    <div class="flex items-center space-x-8 pt-4">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">5,000+</div>
+                            <div class="text-purple-200 text-sm">Apps Created</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">15K+</div>
+                            <div class="text-purple-200 text-sm">Active Users</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">100%</div>
+                            <div class="text-purple-200 text-sm">Free Start</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Visual -->
+                <div class="relative hidden md:block">
+                    <div class="animate-float">
+                        <div class="relative">
+                            <!-- Floating Cards -->
+                            <div class="absolute -top-10 -left-10 glass p-4 rounded-xl shadow-2xl transform rotate-6">
+                                <i class="fas fa-robot text-yellow-300 text-3xl"></i>
+                                <div class="text-sm mt-2">AI Chatbot</div>
+                            </div>
+                            <div class="absolute top-20 -right-10 glass p-4 rounded-xl shadow-2xl transform -rotate-6">
+                                <i class="fas fa-calculator text-green-300 text-3xl"></i>
+                                <div class="text-sm mt-2">Smart Calculator</div>
+                            </div>
+                            <div class="absolute bottom-0 left-10 glass p-4 rounded-xl shadow-2xl transform rotate-3">
+                                <i class="fas fa-clipboard-list text-pink-300 text-3xl"></i>
+                                <div class="text-sm mt-2">Dynamic Forms</div>
+                            </div>
+
+                            <!-- Center Graphic -->
+                            <div class="w-64 h-64 mx-auto bg-white/10 backdrop-blur-lg rounded-3xl flex items-center justify-center border-2 border-white/30 shadow-2xl">
+                                <i class="fas fa-magic text-white text-8xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="particles" id="particles"></div>
-        <div class="hero-content">
-            <h1>Los Angeles Roleplay</h1>
-            <p>Experience the most immersive Los Angeles-based roleplay on Roblox</p>
-            <div class="hero-btns">
-                <a href="http://los-angeles-roleplay.online/About" class="btn">Learn More</a>
-                <a href="https://discord.gg/SAhNSas7yn" target="_blank" class="btn btn-secondary">Join Discord</a>
+    </section>
+
+    <!-- Modules Section -->
+    <section id="modules" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    Choose Your Builder
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Four powerful modules for every use case - from instant apps to advanced AI tools
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
+                <!-- PE 2.5 Module -->
+                <div class="feature-card bg-gradient-to-br from-purple-50 to-white rounded-2xl p-8 border-2 border-purple-200 hover:border-purple-400 transition">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-wand-magic-sparkles text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900">Prompt Engineer 2.5</h3>
+                            <p class="text-purple-600 font-semibold">Unified AI Tool Builder</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4 text-lg">Our most advanced AI-powered tool builder with conversational AI assistance. Build sophisticated tools through natural conversation.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-600 mr-2 mt-1"></i>
+                            <span class="text-gray-600">Conversational AI-assisted building</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-600 mr-2 mt-1"></i>
+                            <span class="text-gray-600">Advanced capability system</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-600 mr-2 mt-1"></i>
+                            <span class="text-gray-600">Dynamic API endpoints & database</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-600 mr-2 mt-1"></i>
+                            <span class="text-gray-600">Real-time collaboration</span>
+                        </li>
+                    </ul>
+                    <div class="flex gap-3">
+                        <a href="/pe25-info.html" class="flex-1 px-4 py-2 border-2 border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 transition font-semibold text-center">
+                            Learn More
+                        </a>
+                        <a href="/pe25/builder.html" class="flex-1 px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg hover:from-purple-700 hover:to-indigo-700 transition font-semibold text-center">
+                            Start Building
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PE 2 Module -->
+                <div class="feature-card bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border-2 border-blue-200 hover:border-blue-400 transition">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-robot text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900">Prompt Engineer 2</h3>
+                            <p class="text-blue-600 font-semibold">Original Tool Builder</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4 text-lg">The original Prompt Engineer with proven stability. Full customization with visual prompt engineering tools.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-600 mr-2 mt-1"></i>
+                            <span class="text-gray-600">Visual prompt engineering</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-600 mr-2 mt-1"></i>
+                            <span class="text-gray-600">Advanced customization options</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-600 mr-2 mt-1"></i>
+                            <span class="text-gray-600">Proven stability & reliability</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-blue-600 mr-2 mt-1"></i>
+                            <span class="text-gray-600">Complex workflow support</span>
+                        </li>
+                    </ul>
+                    <div class="flex gap-3">
+                        <a href="/pe2-info.html" class="flex-1 px-4 py-2 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition font-semibold text-center">
+                            Learn More
+                        </a>
+                        <a href="/pe2/builder.html" class="flex-1 px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg hover:from-blue-700 hover:to-cyan-700 transition font-semibold text-center">
+                            Start Building
+                        </a>
+                    </div>
+                </div>
+
+                <!-- InstaVibe Module -->
+                <div class="feature-card bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 border-2 border-green-200 hover:border-green-400 transition">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-bolt text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900">InstaVibe</h3>
+                            <p class="text-green-600 font-semibold">Instant App Creator</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4 text-lg">Describe your app in plain English and get a fully functional tool in seconds. Perfect for MVPs and quick prototypes.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                            <span class="text-gray-600">Instant AI app generation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                            <span class="text-gray-600">Plain English descriptions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                            <span class="text-gray-600">Perfect for MVPs & testing ideas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                            <span class="text-gray-600">Deploy in under 60 seconds</span>
+                        </li>
+                    </ul>
+                    <div class="flex gap-3">
+                        <a href="/instavibe-info.html" class="flex-1 px-4 py-2 border-2 border-green-600 text-green-600 rounded-lg hover:bg-green-50 transition font-semibold text-center">
+                            Learn More
+                        </a>
+                        <a href="/instavibe/" class="flex-1 px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg hover:from-green-600 hover:to-emerald-700 transition font-semibold text-center">
+                            Start Building
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Monetizer/AI Content Module -->
+                <div class="feature-card bg-gradient-to-br from-amber-50 to-white rounded-2xl p-8 border-2 border-amber-200 hover:border-amber-400 transition">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-coins text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900">AI Content & Monetizer</h3>
+                            <p class="text-amber-600 font-semibold">Content Monetization Platform</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4 text-lg">Create AI-generated content and monetize it with built-in advertising. Turn your content into revenue streams.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-amber-600 mr-2 mt-1"></i>
+                            <span class="text-gray-600">AI content generation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-amber-600 mr-2 mt-1"></i>
+                            <span class="text-gray-600">Built-in ad monetization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-amber-600 mr-2 mt-1"></i>
+                            <span class="text-gray-600">SEO-optimized pages</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-amber-600 mr-2 mt-1"></i>
+                            <span class="text-gray-600">Revenue tracking & analytics</span>
+                        </li>
+                    </ul>
+                    <div class="flex gap-3">
+                        <a href="/monetizer-info.html" class="flex-1 px-4 py-2 border-2 border-amber-600 text-amber-600 rounded-lg hover:bg-amber-50 transition font-semibold text-center">
+                            Learn More
+                        </a>
+                        <a href="/monetizer/campaign.html" class="flex-1 px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg hover:from-amber-600 hover:to-orange-700 transition font-semibold text-center">
+                            Start Creating
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool Directory CTA -->
+            <div class="text-center bg-gradient-to-br from-purple-100 to-indigo-100 rounded-2xl p-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-3">Explore Our Tool Directory</h3>
+                <p class="text-gray-700 mb-6">Browse thousands of tools created by our community across all modules</p>
+                <a href="/directory/" class="inline-block px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg hover:from-purple-700 hover:to-indigo-700 transition font-semibold shadow-lg">
+                    <i class="fas fa-th-large mr-2"></i>
+                    Browse Tool Directory
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="section">
-        <div class="particles" id="particles2"></div>
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Choose Los Angeles Roleplay?</h2>
-                <p>Our community offers an unparalleled roleplay experience with realistic departments, custom content, and an active community.</p>
+    <section id="features" class="py-20 bg-gradient-to-br from-gray-50 to-purple-50">
+        <div class="container mx-auto px-4">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    Platform Features
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Everything you need to build, deploy, and scale AI applications
+                </p>
             </div>
-            <div class="features">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card text-center p-8 rounded-xl hover:shadow-xl bg-white">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-rocket text-white text-2xl"></i>
                     </div>
-                    <h3>Realistic Departments</h3>
-                    <p>Join authentic police, fire, medical, and federal agencies with detailed uniforms and vehicles.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Instant Deployment</h3>
+                    <p class="text-gray-600">One-click deployment to the cloud. Get a shareable URL immediately. No DevOps required.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
+
+                <!-- Feature 2 -->
+                <div class="feature-card text-center p-8 rounded-xl hover:shadow-xl bg-white">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-gauge-high text-white text-2xl"></i>
                     </div>
-                    <h3>Active Community</h3>
-                    <p>Connect with hundreds of dedicated roleplayers in our Discord community and in-game.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Smart Cost Optimization</h3>
+                    <p class="text-gray-600">AI automatically selects the right model for each task. Save money without sacrificing quality.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-palette"></i>
+
+                <!-- Feature 3 -->
+                <div class="feature-card text-center p-8 rounded-xl hover:shadow-xl bg-white">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-th-large text-white text-2xl"></i>
                     </div>
-                    <h3>Custom Content</h3>
-                    <p>Enjoy unique liveries, uniforms, and assets created specifically for our community.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Tool Directory</h3>
+                    <p class="text-gray-600">Share your apps and get discovered. Searchable directories for each module type.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card text-center p-8 rounded-xl hover:shadow-xl bg-white">
+                    <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-images text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Output Gallery</h3>
+                    <p class="text-gray-600">View, manage, and share all your AI-generated content in one beautiful gallery.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card text-center p-8 rounded-xl hover:shadow-xl bg-white">
+                    <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-mobile-screen text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Mobile-First Design</h3>
+                    <p class="text-gray-600">All apps are responsive by default. Build once, works everywhere - phone, tablet, desktop.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card text-center p-8 rounded-xl hover:shadow-xl bg-white">
+                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-halved text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Enterprise Security</h3>
+                    <p class="text-gray-600">CSRF protection, RBAC, secure authentication. Your data and apps are always protected.</p>
+                </div>
+
+                <!-- Feature 7 -->
+                <div class="feature-card text-center p-8 rounded-xl hover:shadow-xl bg-white">
+                    <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-code text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Custom Capabilities</h3>
+                    <p class="text-gray-600">Request advanced capabilities like database access, APIs, and webhooks for your tools.</p>
+                </div>
+
+                <!-- Feature 8 -->
+                <div class="feature-card text-center p-8 rounded-xl hover:shadow-xl bg-white">
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Analytics & Insights</h3>
+                    <p class="text-gray-600">Track usage, performance, and user engagement with built-in analytics dashboards.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Departments Section -->
-    <section class="section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Departments</h2>
-                <p>Join one of our specialized departments and experience roleplay like never before.</p>
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 bg-gradient-to-br from-purple-600 to-indigo-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">How It Works</h2>
+                <p class="text-xl text-purple-100 max-w-2xl mx-auto">
+                    Build and deploy AI apps in three simple steps
+                </p>
             </div>
-            <div class="departments">
-                <div class="department-card">
-                    <div class="department-img">
-                        <img src="https://ik.imagekit.io/seqcqjmzq/1759444602631.jpg?updatedAt=1762491919584" alt="LAPD Logo">
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="step-number w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-2xl">
+                        1
                     </div>
-                    <div class="department-content">
-                        <h3>Police Department</h3>
-                        <p>Enforce the law, respond to emergencies, and protect the citizens of Los Angeles.</p>
+                    <h3 class="text-2xl font-bold mb-3">Describe Your App</h3>
+                    <p class="text-purple-100">
+                        Tell us what you want to build in plain English. "A chatbot that helps users find recipes" or "A calculator for mortgage payments."
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="step-number w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-2xl">
+                        2
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">AI Builds It</h3>
+                    <p class="text-purple-100">
+                        Our AI creates your app with a beautiful interface, smart logic, and all the features you need. Customize if you want, or deploy as-is.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="step-number w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-2xl">
+                        3
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Deploy & Share</h3>
+                    <p class="text-purple-100">
+                        Click deploy and get a live URL instantly. Share with users, embed on your website, or list in the directory. It's that easy.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center mt-12">
+                <a href="/register.html" class="inline-block px-10 py-4 bg-white text-purple-600 rounded-lg hover:bg-gray-100 transition font-bold text-lg shadow-2xl">
+                    <i class="fas fa-rocket mr-2"></i>
+                    Start Building Now - It's Free
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section id="use-cases" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    What Can You Build?
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    From simple utilities to complex business applications
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Use Case 1 -->
+                <div class="bg-gradient-to-br from-purple-50 to-white rounded-xl p-6 border-2 border-purple-100 hover:border-purple-300 transition">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-robot text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900">AI Chatbots</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Customer support bots, FAQ assistants, lead qualification chatbots, personal assistants</p>
+                    <div class="text-sm text-purple-600 font-semibold">
+                        <i class="fas fa-clock mr-1"></i> Build in 5 minutes
                     </div>
                 </div>
-                <div class="department-card">
-                    <div class="department-img">
-                        <img src="https://ik.imagekit.io/seqcqjmzq/Los%20Angeles%20Fire%20Dept.jpg" alt="LAFD Logo">
+
+                <!-- Use Case 2 -->
+                <div class="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border-2 border-blue-100 hover:border-blue-300 transition">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-clipboard-check text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900">Smart Forms</h3>
                     </div>
-                    <div class="department-content">
-                        <h3>Fire & Rescue</h3>
-                        <p>Respond to fires, medical emergencies, and rescue operations across the city.</p>
-                    </div>
-                </div>
-                <div class="department-card">
-                    <div class="department-img">
-                        <img src="https://ik.imagekit.io/seqcqjmzq/Los%20Angeles%20EMS.jpg" alt="EMS and Medical Logo">
-                    </div>
-                    <div class="department-content">
-                        <h3>Medical Services</h3>
-                        <p>Provide critical medical care and transport patients to hospitals.</p>
+                    <p class="text-gray-600 mb-4">Lead capture forms, surveys with AI analysis, dynamic questionnaires, data collection tools</p>
+                    <div class="text-sm text-blue-600 font-semibold">
+                        <i class="fas fa-clock mr-1"></i> Build in 3 minutes
                     </div>
                 </div>
-                <div class="department-card">
-                    <div class="department-img">
-                        <img src="https://ik.imagekit.io/seqcqjmzq/Los%20Angeles%20Federal%20Department.jpg" alt="LAFED Logo">
+
+                <!-- Use Case 3 -->
+                <div class="bg-gradient-to-br from-green-50 to-white rounded-xl p-6 border-2 border-green-100 hover:border-green-300 transition">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-calculator text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900">Calculators</h3>
                     </div>
-                    <div class="department-content">
-                        <h3>Federal Agencies</h3>
-                        <p>Work with FBI, DEA, and Homeland Security on special operations.</p>
+                    <p class="text-gray-600 mb-4">ROI calculators, pricing estimators, mortgage calculators, fitness trackers, budget planners</p>
+                    <div class="text-sm text-green-600 font-semibold">
+                        <i class="fas fa-clock mr-1"></i> Build in 4 minutes
+                    </div>
+                </div>
+
+                <!-- Use Case 4 -->
+                <div class="bg-gradient-to-br from-yellow-50 to-white rounded-xl p-6 border-2 border-yellow-100 hover:border-yellow-300 transition">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-graduation-cap text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900">Quizzes & Assessments</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Personality tests, knowledge quizzes, skill assessments, interactive learning tools</p>
+                    <div class="text-sm text-yellow-600 font-semibold">
+                        <i class="fas fa-clock mr-1"></i> Build in 6 minutes
+                    </div>
+                </div>
+
+                <!-- Use Case 5 -->
+                <div class="bg-gradient-to-br from-pink-50 to-white rounded-xl p-6 border-2 border-pink-100 hover:border-pink-300 transition">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-lightbulb text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900">Business Tools</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Idea validators, business name generators, pitch deck helpers, market research assistants</p>
+                    <div class="text-sm text-pink-600 font-semibold">
+                        <i class="fas fa-clock mr-1"></i> Build in 7 minutes
+                    </div>
+                </div>
+
+                <!-- Use Case 6 -->
+                <div class="bg-gradient-to-br from-indigo-50 to-white rounded-xl p-6 border-2 border-indigo-100 hover:border-indigo-300 transition">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900">Analytics & Reports</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Data visualizers, report generators, trend analyzers, performance dashboards</p>
+                    <div class="text-sm text-indigo-600 font-semibold">
+                        <i class="fas fa-clock mr-1"></i> Build in 8 minutes
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center mt-12">
+                <p class="text-gray-600 mb-6">Can't find what you need? Build it yourself in minutes.</p>
+                <a href="/register.html" class="inline-block px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg hover:from-purple-700 hover:to-indigo-700 transition font-semibold shadow-lg">
+                    <i class="fas fa-plus-circle mr-2"></i>
+                    Create Your Custom App
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-purple-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    Loved by Creators & Businesses
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Join thousands building the future with AI
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">
+                        "I built a lead generation chatbot for my agency in under 10 minutes. It's already captured 50+ qualified leads. This is game-changing!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold mr-3">
+                            MR
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900">Marcus Rodriguez</p>
+                            <p class="text-sm text-gray-600">Marketing Agency Owner</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">
+                        "As a non-technical founder, this platform is exactly what I needed. I've built 3 MVPs for different ideas and validated them with real users."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white font-bold mr-3">
+                            SL
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900">Sarah Lin</p>
+                            <p class="text-sm text-gray-600">Startup Founder</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">
+                        "The cost optimization is brilliant. We went from spending thousands on API calls to under $100/month without losing quality. Incredible ROI."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center text-white font-bold mr-3">
+                            JK
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900">James Kim</p>
+                            <p class="text-sm text-gray-600">SaaS Developer</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Community Stats</h2>
-                <p>Join our growing community of dedicated roleplayers.</p>
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    Simple, Transparent Pricing
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Start free, scale as you grow
+                </p>
             </div>
-            <div class="stats">
-                <div class="stat-item">
-                    <span class="stat-number">100+</span>
-                    <span class="stat-label">Active Members</span>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Free Tier -->
+                <div class="border-2 border-gray-200 rounded-2xl p-8 hover:shadow-xl transition">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Free</h3>
+                        <div class="text-5xl font-bold text-gray-900 mb-2">$0</div>
+                        <p class="text-gray-600">Forever free</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">3 active apps</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">InstaVibe builder</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">100 AI requests/month</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">Community support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">Shared hosting</span>
+                        </li>
+                    </ul>
+                    <a href="/register.html" class="block w-full px-6 py-3 bg-gray-200 text-gray-900 rounded-lg hover:bg-gray-300 transition font-semibold text-center">
+                        Get Started
+                    </a>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">8+</span>
-                    <span class="stat-label">Departments</span>
+
+                <!-- Pro Tier -->
+                <div class="border-2 border-purple-600 rounded-2xl p-8 relative hover:shadow-2xl transition transform md:-translate-y-4 bg-gradient-to-br from-purple-50 to-white">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-full text-sm font-semibold">
+                        Most Popular
+                    </div>
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Pro</h3>
+                        <div class="text-5xl font-bold text-gray-900 mb-2">$29</div>
+                        <p class="text-gray-600">per month</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700"><strong>Unlimited apps</strong></span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">InstaVibe + PE2 builder</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">10,000 AI requests/month</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">Priority support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">Custom domains</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">Advanced analytics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">Directory listing</span>
+                        </li>
+                    </ul>
+                    <a href="/register.html" class="block w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg hover:from-purple-700 hover:to-indigo-700 transition font-semibold shadow-lg text-center">
+                        Start Free Trial
+                    </a>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-label">Active Roleplay</span>
+
+                <!-- Enterprise Tier -->
+                <div class="border-2 border-gray-200 rounded-2xl p-8 hover:shadow-xl transition">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Enterprise</h3>
+                        <div class="text-5xl font-bold text-gray-900 mb-2">Custom</div>
+                        <p class="text-gray-600">For teams & agencies</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700"><strong>Everything in Pro</strong></span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">Unlimited AI requests</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">White-label options</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">Multi-tenant support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">Dedicated support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">SLA guarantees</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">Custom integrations</span>
+                        </li>
+                    </ul>
+                    <a href="/saas.html" class="block w-full px-6 py-3 bg-gray-200 text-gray-900 rounded-lg hover:bg-gray-300 transition font-semibold text-center">
+                        Contact Sales
+                    </a>
+                </div>
+            </div>
+
+            <!-- Money-back guarantee -->
+            <div class="text-center mt-12">
+                <div class="inline-flex items-center px-6 py-3 bg-green-100 text-green-800 rounded-lg">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    <span class="font-semibold">14-day money-back guarantee on all paid plans</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to Join Our Community?</h2>
-            <p>Become part of the most immersive Los Angeles roleplay experience on Roblox today.</p>
-            <div class="cta-btns">
-                <a href="http://los-angeles-roleplay.online/Applications" class="btn btn-light">Apply Now</a>
-                <a href="https://discord.gg/SAhNSas7yn" target="_blank" class="btn btn-secondary">Join Discord</a>
-            </div>
+    <!-- Final CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                Ready to Build Your First AI App?
+            </h2>
+            <p class="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+                Join 15,000+ creators building the future with AI. No credit card required to start.
+            </p>
+            <a href="/register.html" class="inline-block px-10 py-5 bg-white text-purple-600 rounded-lg hover:bg-gray-100 transition font-bold text-xl shadow-2xl">
+                <i class="fas fa-rocket mr-2"></i>
+                Start Building Free - No Credit Card Required
+            </a>
+            <p class="mt-6 text-purple-200 text-sm">
+                <i class="fas fa-check-circle mr-1"></i> Free forever plan available
+                <span class="mx-3">•</span>
+                <i class="fas fa-check-circle mr-1"></i> No setup fees
+                <span class="mx-3">•</span>
+                <i class="fas fa-check-circle mr-1"></i> Cancel anytime
+            </p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <img src="https://ik.imagekit.io/seqcqjmzq/LARP%20-%20made%20by%20star%202.png?updatedAt=1759093844096" alt="Los Angeles Roleplay Logo" class="footer-logo">
-                <h3>Los Angeles Roleplay</h3>
-                <p>Building the most immersive Los Angeles-based roleplay experience on Roblox since 2025.</p>
-                <div class="social-links">
-                    <a href="https://discord.gg/SAhNSas7yn" target="_blank">
-                        <i class="fab fa-discord"></i>
-                    </a>
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- About -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-magic text-white text-sm"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-lg">Prompt Machine</h4>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-4">
+                        Build AI-powered web applications without coding. From idea to deployment in minutes.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-purple-600 rounded-lg flex items-center justify-center transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-purple-600 rounded-lg flex items-center justify-center transition">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-purple-600 rounded-lg flex items-center justify-center transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-purple-600 rounded-lg flex items-center justify-center transition">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product -->
+                <div>
+                    <h4 class="text-white font-bold mb-4">Product</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-sm hover:text-white transition">Features</a></li>
+                        <li><a href="#pricing" class="text-sm hover:text-white transition">Pricing</a></li>
+                        <li><a href="#how-it-works" class="text-sm hover:text-white transition">How It Works</a></li>
+                        <li><a href="/saas.html" class="text-sm hover:text-white transition">For Agencies</a></li>
+                        <li><a href="#" class="text-sm hover:text-white transition">Roadmap</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                    <h4 class="text-white font-bold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-sm hover:text-white transition">Documentation</a></li>
+                        <li><a href="#" class="text-sm hover:text-white transition">API Reference</a></li>
+                        <li><a href="#" class="text-sm hover:text-white transition">Tutorials</a></li>
+                        <li><a href="#" class="text-sm hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="text-sm hover:text-white transition">Community</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="text-white font-bold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-sm hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="text-sm hover:text-white transition">Contact</a></li>
+                        <li><a href="#" class="text-sm hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="text-sm hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="text-sm hover:text-white transition">Status</a></li>
+                    </ul>
                 </div>
             </div>
-            
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="http://los-angeles-roleplay.online" class="footer-btn">Home</a></li>
-                    <li><a href="http://los-angeles-roleplay.online/About" class="footer-btn">About Us</a></li>
-                    <li><a href="http://los-angeles-roleplay.online/Community" class="footer-btn">Community</a></li>
-                    <li><a href="http://los-angeles-roleplay.online/Staff" class="footer-btn">Staff</a></li>
-                    <li><a href="http://los-angeles-roleplay.online/Announcement" class="footer-btn">Announcement</a></li>
-                </ul>
+
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                    <p>&copy; 2025 Prompt Machine v4.0.1. All rights reserved.</p>
+                    <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                        <span class="flex items-center">
+                            <i class="fas fa-heart text-red-500 mr-1"></i>
+                            Built with AI
+                        </span>
+                    </div>
+                </div>
             </div>
-            
-            <div class="footer-section">
-                <h3>Resources</h3>
-                <ul>
-                    <li><a href="http://los-angeles-roleplay.online/Rules" class="footer-btn">Rules & Guidelines</a></li>
-                    <li><a href="http://los-angeles-roleplay.online/FAQ" class="footer-btn">FAQ</a></li>
-                    <li><a href="http://los-angeles-roleplay.online/Support" class="footer-btn">Support</a></li>
-                    <li><a href="http://los-angeles-roleplay.online/Docs" class="footer-btn">Developer Docs</a></li>
-                    <li><a href="http://los-angeles-roleplay.online/Departments" class="footer-btn">Departments</a></li>
-                    <li><a href="http://los-angeles-roleplay.online/Departments/Department-members" class="footer-btn">Department Members</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Programs</h3>
-                <ul>
-                    <li><a href="http://los-angeles-roleplay.online/We-Need-You" class="footer-btn">We Need You Program</a></li>
-                    <li><a href="http://los-angeles-roleplay.online/Applications" class="footer-btn">Applications</a></li>
-                    <li><a href="http://los-angeles-roleplay.online/Testing" class="footer-btn">Beta Testing</a></li>
-                    <li><a href="http://los-angeles-roleplay.online/Partners" class="footer-btn">Partners</a></li>
-                    <li><a href="http://los-angeles-roleplay.online/Events" class="footer-btn">Community Events</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Legal</h3>
-                <ul>
-                    <li><a href="http://los-angeles-roleplay.online/Privacy-Policy" class="footer-btn">Privacy Policy</a></li>
-                    <li><a href="http://los-angeles-roleplay.online/Terms" class="footer-btn">Terms of Service</a></li>
-                    <li><a href="http://los-angeles-roleplay.online/Contact" class="footer-btn">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2025 Los Angeles Roleplay Community. All rights reserved.</p>
-            <p>This site is not affiliated with Roblox Corporation.</p>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="/frontend-config.js"></script>
+
     <script>
-        // Mobile Menu Toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            
-            hamburger.addEventListener('click', function() {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-            
-            // Close menu when clicking on a link
-            document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }));
-            
-            // Navbar scroll effect
-            window.addEventListener('scroll', function() {
-                const navbar = document.querySelector('.navbar');
-                if (window.scrollY > 50) {
-                    navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                    navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
-                } else {
-                    navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-                    navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
-                }
-            });
-            
-            // Create particles
-            function createParticles(containerId, count) {
-                const container = document.getElementById(containerId);
-                for (let i = 0; i < count; i++) {
-                    const particle = document.createElement('div');
-                    particle.classList.add('particle');
-                    
-                    const size = Math.random() * 5 + 2;
-                    const left = Math.random() * 100;
-                    const animationDuration = Math.random() * 20 + 10;
-                    const animationDelay = Math.random() * 5;
-                    
-                    particle.style.width = `${size}px`;
-                    particle.style.height = `${size}px`;
-                    particle.style.left = `${left}%`;
-                    particle.style.animationDuration = `${animationDuration}s`;
-                    particle.style.animationDelay = `${animationDelay}s`;
-                    
-                    container.appendChild(particle);
-                }
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuIcon = document.getElementById('mobileMenuIcon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
+            } else {
+                mobileMenuIcon.classList.remove('fa-bars');
+                mobileMenuIcon.classList.add('fa-times');
             }
-            
-            createParticles('particles', 30);
-            createParticles('particles2', 20);
-            
-            // Scroll animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        if (entry.target.classList.contains('feature-card')) {
-                            entry.target.classList.add('visible');
-                        } else if (entry.target.classList.contains('department-card')) {
-                            entry.target.classList.add('visible');
-                        } else if (entry.target.classList.contains('stat-item')) {
-                            entry.target.classList.add('visible');
-                        }
-                    }
-                });
-            }, observerOptions);
-            
-            // Observe all animated elements
-            document.querySelectorAll('.feature-card').forEach(card => {
-                observer.observe(card);
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuIcon.classList.remove('fa-times');
+                mobileMenuIcon.classList.add('fa-bars');
             });
-            
-            document.querySelectorAll('.department-card').forEach(card => {
-                observer.observe(card);
-            });
-            
-            document.querySelectorAll('.stat-item').forEach(item => {
-                observer.observe(item);
-            });
-            
-            // Animate stats counting up
-            const statNumbers = document.querySelectorAll('.stat-number');
-            
-            statNumbers.forEach(stat => {
-                const text = stat.textContent;
-                if (text.includes('+')) {
-                    const target = parseInt(text);
-                    let current = 0;
-                    const increment = target / 50;
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            current = target;
-                            clearInterval(timer);
-                        }
-                        stat.textContent = Math.floor(current).toString() + '+';
-                    }, 30);
-                } else if (text.includes('/')) {
-                    // For 24/7 stat, just fade in
-                    stat.style.opacity = '1';
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
+
+        // Directory dropdown functionality
+        const directoryDropdownBtn = document.getElementById('directoryDropdownBtn');
+        const directoryDropdownMenu = document.getElementById('directoryDropdownMenu');
+
+        if (directoryDropdownBtn && directoryDropdownMenu) {
+            directoryDropdownBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                directoryDropdownMenu.classList.toggle('hidden');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!document.getElementById('directoryDropdown').contains(e.target)) {
+                    directoryDropdownMenu.classList.add('hidden');
+                }
+            });
+        }
     </script>
 </body>
 </html>
